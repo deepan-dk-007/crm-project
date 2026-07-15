@@ -1,7 +1,9 @@
 /* ==========================================================================
-   DK CRM - CSS Design System & Layouts
+   DK CRM - Premium CSS Design System & Layouts
    ========================================================================== */
+
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
 :root {
   /* Colors - Dark Theme (Default) */
   --bg-primary: #0a0d14;
@@ -36,6 +38,7 @@
   --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.5);
   --glass-bg: rgba(17, 21, 32, 0.7);
   --glass-border: rgba(255, 255, 255, 0.06);
+
   --sidebar-width: 260px;
   --radius-sm: 6px;
   --radius-md: 10px;
@@ -43,6 +46,7 @@
   --transition-fast: 0.2s ease;
   --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 /* Light Theme Variables */
 body.light-theme {
   --bg-primary: #f6f8fa;
@@ -64,9 +68,8 @@ body.light-theme {
   --glass-bg: rgba(255, 255, 255, 0.8);
   --glass-border: rgba(0, 0, 0, 0.06);
 }
-/* ==========================================================================
-   Base resets & typography
-   ========================================================================== */
+
+/* Base resets & typography */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -89,9 +92,8 @@ button, input, select, textarea {
   font-family: inherit;
   color: inherit;
 }
-/* ==========================================================================
-   Phishing Safe Banner Style
-   ========================================================================== */
+
+/* Sandbox Warning Banner */
 .sandbox-banner {
   background: linear-gradient(90deg, #b87b22 0%, #e8a23d 50%, #b87b22 100%);
   color: #110c02;
@@ -116,12 +118,11 @@ button, input, select, textarea {
   font-size: 11px;
   font-weight: 800;
 }
-/* ==========================================================================
-   Login Page (index.html) Styles
-   ========================================================================== */
+
+/* Login Page Layout */
 .login-page {
   display: flex;
-  min-height: calc(100vh - 35px); /* Offset for sandbox banner */
+  min-height: calc(100vh - 35px);
   width: 100%;
 }
 .login-left {
@@ -135,7 +136,6 @@ button, input, select, textarea {
   position: relative;
   overflow: hidden;
 }
-/* Topographic background vectors for premium visual aesthetic */
 .login-left::before {
   content: '';
   position: absolute;
@@ -167,7 +167,6 @@ button, input, select, textarea {
   line-height: 1.15;
   margin-bottom: 20px;
   background: linear-gradient(135deg, var(--text-primary) 30%, var(--accent-color) 100%);
-  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -426,14 +425,14 @@ button, input, select, textarea {
 .footer-note a {
   color: var(--accent-color);
 }
-/* ==========================================================================
-   App Shell Layout (Dashboard, Customers, Orders, Settings)
-   ========================================================================== */
+
+/* App Shell Layout */
 .app {
   display: flex;
   min-height: 100vh;
 }
-/* ---------- SIDEBAR ---------- */
+
+/* Sidebar Layout */
 .sidebar {
   width: var(--sidebar-width);
   background-color: var(--bg-secondary);
@@ -525,9 +524,6 @@ button, input, select, textarea {
   color: var(--accent-color);
   flex-shrink: 0;
 }
-.user-details {
-  min-width: 0;
-}
 .user-name {
   font-size: 13.5px;
   font-weight: 600;
@@ -560,7 +556,8 @@ button, input, select, textarea {
   background-color: var(--danger-bg);
   border-color: rgba(239, 68, 68, 0.2);
 }
-/* ---------- MAIN LAYOUT ---------- */
+
+/* Main Viewport */
 .main {
   flex: 1;
   min-width: 0;
@@ -568,7 +565,8 @@ button, input, select, textarea {
   display: flex;
   flex-direction: column;
 }
-/* ---------- TOPBAR ---------- */
+
+/* Topbar */
 .topbar {
   display: flex;
   align-items: center;
@@ -667,9 +665,8 @@ button, input, select, textarea {
   justify-content: center;
   border: 2px solid var(--bg-primary);
 }
-/* ==========================================================================
-   Notification Popover Panel
-   ========================================================================== */
+
+/* Notification Popover */
 .notif-popover {
   position: absolute;
   top: 48px;
@@ -759,7 +756,8 @@ button, input, select, textarea {
   color: var(--text-muted);
   font-size: 13.5px;
 }
-/* ---------- WELCOME / CALLOUT BOX ---------- */
+
+/* Welcome Callout Box */
 .welcome-banner {
   background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
   border: 1px solid var(--border-color);
@@ -781,7 +779,8 @@ button, input, select, textarea {
   max-width: 600px;
   line-height: 1.5;
 }
-/* ---------- KPI GRID ---------- */
+
+/* KPI Card Grid */
 .kpi-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -841,7 +840,8 @@ button, input, select, textarea {
 .kpi-trend.down {
   color: var(--danger);
 }
-/* ---------- CONTENT PANELS ---------- */
+
+/* Content Panels */
 .charts-grid {
   display: grid;
   grid-template-columns: 1.6fr 1fr;
@@ -928,7 +928,8 @@ button, input, select, textarea {
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
-/* ---------- TABLES ---------- */
+
+/* Tables */
 .table-panel {
   padding: 0;
   overflow: hidden;
@@ -1031,14 +1032,13 @@ body.light-theme tbody tr:hover {
   font-size: 12px;
   font-weight: 600;
 }
-/* Badge styles */
 .badge-pending { background-color: var(--bg-accent); color: var(--accent-color); }
 .badge-processing { background-color: var(--info-bg); color: var(--info); }
 .badge-shipped { background-color: rgba(16, 185, 129, 0.1); color: var(--success); }
 .badge-delivered { background-color: rgba(16, 185, 129, 0.15); color: var(--success); }
 .badge-cancelled { background-color: var(--danger-bg); color: var(--danger); }
 .badge-refunded { background-color: var(--bg-tertiary); color: var(--text-muted); }
-/* Table Action Buttons */
+
 .row-action-btn {
   background: none;
   border: none;
@@ -1055,7 +1055,8 @@ body.light-theme tbody tr:hover {
   background-color: var(--bg-tertiary);
   color: var(--text-primary);
 }
-/* ---------- CUSTOMER VIEW / DRAWER DETAILS ---------- */
+
+/* Customer Drawer Inspector */
 .details-panel {
   display: flex;
   flex-direction: column;
@@ -1091,7 +1092,8 @@ body.light-theme tbody tr:hover {
   color: var(--text-primary);
   font-weight: 500;
 }
-/* ---------- RECENT ACTIVITIES (LIST) ---------- */
+
+/* Recent Activity List */
 .activity-list {
   display: flex;
   flex-direction: column;
@@ -1145,7 +1147,8 @@ body.light-theme tbody tr:hover {
   border-radius: 4px;
   font-size: 11px;
 }
-/* ---------- TOOLBARS ---------- */
+
+/* Toolbars */
 .toolbar {
   display: flex;
   align-items: center;
@@ -1183,7 +1186,8 @@ body.light-theme tbody tr:hover {
 .clear-filters.show {
   display: inline-block;
 }
-/* ---------- STATUS SUMMARY (CHIPS) ---------- */
+
+/* Status Chips */
 .status-summary {
   display: flex;
   gap: 10px;
@@ -1221,7 +1225,8 @@ body.light-theme tbody tr:hover {
   color: var(--text-primary);
   margin-left: 4px;
 }
-/* ---------- PAGINATION ---------- */
+
+/* Pagination */
 .pagination {
   display: flex;
   align-items: center;
@@ -1268,7 +1273,8 @@ body.light-theme tbody tr:hover {
   opacity: 0.4;
   cursor: not-allowed;
 }
-/* ---------- DIALOG / MODAL ---------- */
+
+/* Modals */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -1345,7 +1351,8 @@ body.light-theme tbody tr:hover {
 .btn-danger:hover {
   opacity: 0.9;
 }
-/* ---------- TOAST MESSAGE ---------- */
+
+/* Toast Message */
 .toast-msg {
   position: fixed;
   bottom: 30px;
@@ -1367,9 +1374,8 @@ body.light-theme tbody tr:hover {
   transform: translateX(-50%) translateY(0);
   opacity: 1;
 }
-/* ==========================================================================
-   Animations
-   ========================================================================== */
+
+/* Animations */
 @keyframes pulse {
   0% { transform: scale(0.9); opacity: 0.6; }
   50% { transform: scale(1.1); opacity: 1; }
@@ -1383,36 +1389,30 @@ body.light-theme tbody tr:hover {
   from { transform: scale(0.95); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
 }
-/* ==========================================================================
-   Media Queries & Responsiveness
-   ========================================================================== */
-/* Tablet & Mobile Screens */
+
+/* Responsiveness Media Queries */
 @media (max-width: 992px) {
   .charts-grid {
     grid-template-columns: 1fr;
   }
 }
+
 @media (max-width: 768px) {
-  /* HIDE LOGIN LEFT DECORATIVE SIDE */
   .login-left {
     display: none !important;
   }
-  
   .login-page {
     justify-content: center;
     align-items: center;
   }
-  
   .login-right {
     flex: 1;
     width: 100%;
   }
   
-  /* APP SIDEBAR RESPONSIBILITY */
   .app {
     flex-direction: column;
   }
-  
   .sidebar {
     position: fixed;
     top: 0;
@@ -1422,40 +1422,34 @@ body.light-theme tbody tr:hover {
     transform: translateX(-100%);
     box-shadow: var(--shadow-lg);
   }
-  
   .sidebar.open {
     transform: translateX(0);
   }
-  
   .menu-toggle {
     display: inline-block;
   }
-  
   .main {
     padding: 20px 16px;
   }
-  
   .topbar {
     flex-direction: column;
     align-items: stretch;
     gap: 16px;
   }
-  
   .topbar-actions {
     justify-content: space-between;
   }
-  
   .search-box {
     width: 100%;
     flex: 1;
   }
-  
   .toolbar-right {
     margin-left: 0;
     width: 100%;
     justify-content: space-between;
   }
 }
+
 @media (max-width: 480px) {
   .login-form-box {
     padding: 24px;
@@ -1463,16 +1457,10 @@ body.light-theme tbody tr:hover {
     box-shadow: none;
     background: transparent;
   }
-  
   .elevation-badge {
     padding: 10px 16px;
   }
-  
   .charts-grid.even {
     grid-template-columns: 1fr;
   }
 }
-
-
-
-
