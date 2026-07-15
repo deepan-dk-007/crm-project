@@ -1,482 +1,327 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DK CRM - Customers Sandbox</title>
-    <link rel="stylesheet" href="style.css" />
-    <!-- Lucide Icons CDN -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-  </head>
-  <body>
-    <div class="app">
-      <!-- SIDEBAR -->
-      <aside class="sidebar" id="app-sidebar">
-        <div>
-          <div class="brand">
-            <i
-              data-lucide="shield-check"
-              style="stroke-width: 2.5; width: 24px; height: 24px"
-            ></i>
-            <span>DK CRM</span>
-          </div>
-          <nav>
-            <div class="nav-label">Workspace</div>
-            <a href="dashboard.html">
-              <div class="nav-item">
-                <i data-lucide="layout-dashboard"></i>
-                <span>Dashboard</span>
-              </div>
-            </a>
-            <a href="customer.html">
-              <div class="nav-item">
-                <i data-lucide="users"></i>
-                <span>Customers</span>
-              </div>
-            </a>
-            <a href="order.html">
-              <div class="nav-item">
-                <i data-lucide="shopping-cart"></i>
-                <span>Orders</span>
-              </div>
-            </a>
-            <div class="nav-label">Account</div>
-            <a href="settings.html">
-              <div class="nav-item">
-                <i data-lucide="settings"></i>
-                <span>Settings</span>
-              </div>
-            </a>
-          </nav>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DK CRM - Customers Sandbox</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div class="app">
+    
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="app-sidebar">
+      <div>
+        <div class="brand">
+          <i data-lucide="shield-check" style="stroke-width: 2.5; width: 24px; height: 24px;"></i>
+          <span>DK CRM</span>
         </div>
-        <div class="sidebar-footer">
-          <div class="user-profile">
-            <div class="avatar">DK</div>
-            <div class="user-details">
-              <div class="user-name">Deepan Karthick</div>
-              <div class="user-role">Sales Director</div>
+        <nav>
+          <div class="nav-label">Workspace</div>
+          <a href="dashboard.html">
+            <div class="nav-item">
+              <i data-lucide="layout-dashboard"></i>
+              <span>Dashboard</span>
             </div>
+          </a>
+          <a href="customer.html">
+            <div class="nav-item">
+              <i data-lucide="users"></i>
+              <span>Customers</span>
+            </div>
+          </a>
+          <a href="order.html">
+            <div class="nav-item">
+              <i data-lucide="shopping-cart"></i>
+              <span>Orders</span>
+            </div>
+          </a>
+          <div class="nav-label">Account</div>
+          <a href="settings.html">
+            <div class="nav-item">
+              <i data-lucide="settings"></i>
+              <span>Settings</span>
+            </div>
+          </a>
+        </nav>
+      </div>
+      <div class="sidebar-footer">
+        <div class="user-profile">
+          <div class="avatar">DK</div>
+          <div class="user-details">
+            <div class="user-name">Deepan Karthick</div>
+            <div class="user-role">Sales Director</div>
           </div>
-          <button class="logout-btn" id="logoutBtn">
-            <i data-lucide="log-out" style="width: 14px; height: 14px"></i>
-            <span>Sign Out</span>
+        </div>
+        <button class="logout-btn" id="logoutBtn">
+          <i data-lucide="log-out" style="width: 14px; height: 14px;"></i>
+          <span>Sign Out</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-title-wrap">
+          <button class="menu-toggle" id="sidebar-toggle-btn" aria-label="Toggle Sidebar Menu">
+            <i data-lucide="menu"></i>
+          </button>
+          <div>
+            <h1>Customers</h1>
+            <div class="subtitle" id="cust-count-sub">Manage your active accounts & accounts database</div>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <div class="search-box">
+            <i data-lucide="search" style="width: 16px; height: 16px;"></i>
+            <input type="text" id="cust-search" placeholder="Search customer, email..." />
+          </div>
+          <button class="icon-btn" id="notif-bell" aria-label="Notifications">
+            <i data-lucide="bell" style="width: 18px; height: 18px;"></i>
+          </button>
+          <button class="icon-btn" id="theme-toggle-btn" aria-label="Toggle Light/Dark theme">
+            <i data-lucide="moon" id="theme-icon" style="width: 18px; height: 18px;"></i>
           </button>
         </div>
-      </aside>
-      <!-- MAIN CONTENT -->
-      <main class="main">
-        <!-- TOPBAR -->
-        <header class="topbar">
-          <div class="topbar-title-wrap">
-            <button
-              class="menu-toggle"
-              id="sidebar-toggle-btn"
-              aria-label="Toggle Sidebar Menu"
-            >
-              <i data-lucide="menu"></i>
-            </button>
-            <div>
-              <h1>Customers</h1>
-              <div class="subtitle" id="cust-count-sub">
-                Manage your active accounts & accounts database
-              </div>
-            </div>
-          </div>
-          <div class="topbar-actions">
-            <div class="search-box">
-              <i data-lucide="search" style="width: 16px; height: 16px"></i>
-              <input
-                type="text"
-                id="cust-search"
-                placeholder="Search customer, email..."
-              />
-            </div>
+      </header>
 
-            <button class="icon-btn" id="notif-bell" aria-label="Notifications">
-              <i data-lucide="bell" style="width: 18px; height: 18px"></i>
-            </button>
+      <!-- Status Chips -->
+      <div class="status-summary" id="status-chips"></div>
 
-            <button
-              class="icon-btn"
-              id="theme-toggle-btn"
-              aria-label="Toggle Light/Dark theme"
-            >
-              <i
-                data-lucide="moon"
-                id="theme-icon"
-                style="width: 18px; height: 18px"
-              ></i>
-            </button>
-          </div>
-        </header>
-        <!-- Status Chips -->
-        <div class="status-summary" id="status-chips">
-          <!-- Rendered dynamically -->
+      <!-- Table Toolbar -->
+      <div class="toolbar">
+        <select id="status-filter" class="filter-select">
+          <option value="all">All Statuses</option>
+          <option value="Active">Active</option>
+          <option value="Lead">Lead</option>
+          <option value="Inactive">Inactive</option>
+        </select>
+        <select id="manager-filter" class="filter-select">
+          <option value="all">All Managers</option>
+          <option value="Deepan Karthick">Deepan Karthick</option>
+          <option value="Sarah Connor">Sarah Connor</option>
+          <option value="John Miller">John Miller</option>
+        </select>
+        <span class="clear-filters" id="clear-filters-btn">Clear filters ✕</span>
+      </div>
+
+      <!-- Customers Table Panel -->
+      <div class="panel table-panel">
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th class="sortable" id="sort-name">Customer <i class="sort-icon active">▼</i></th>
+                <th>Company</th>
+                <th>Phone</th>
+                <th>Status</th>
+                <th class="sortable" id="sort-date">Last Contacted <i class="sort-icon">▼</i></th>
+                <th>Assigned Manager</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="customer-table-body"></tbody>
+          </table>
         </div>
-        <!-- Table Toolbar -->
-        <div class="toolbar">
-          <select id="status-filter" class="filter-select">
-            <option value="all">All Statuses</option>
-            <option value="Active">Active</option>
-            <option value="Lead">Lead</option>
-            <option value="Inactive">Inactive</option>
-          </select>
-          <select id="manager-filter" class="filter-select">
-            <option value="all">All Managers</option>
-            <option value="Deepan Karthick">Deepan Karthick</option>
-            <option value="Sarah Connor">Sarah Connor</option>
-            <option value="John Miller">John Miller</option>
-          </select>
-          <span class="clear-filters" id="clear-filters-btn"
-            >Clear filters ✕</span
-          >
-        </div>
-        <!-- Customers Table Panel -->
-        <div class="panel table-panel">
-          <div class="table-scroll">
-            <table>
-              <thead>
-                <tr>
-                  <th class="sortable" id="sort-name">
-                    Customer <i class="sort-icon active">▼</i>
-                  </th>
-                  <th>Company</th>
-                  <th>Phone</th>
-                  <th>Status</th>
-                  <th class="sortable" id="sort-date">
-                    Last Contacted <i class="sort-icon">▼</i>
-                  </th>
-                  <th>Assigned Manager</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody id="customer-table-body">
-                <!-- Rendered via JS -->
-              </tbody>
-            </table>
-          </div>
-          <!-- Pagination -->
-          <div class="pagination">
-            <div class="page-info" id="pagination-info">
-              Showing 1 to 5 of 20 customers
-            </div>
-            <div class="page-controls" id="pagination-controls">
-              <!-- Controls rendered dynamically -->
-            </div>
-          </div>
-        </div>
-      </main>
-    </div>
-    <!-- Detail Inspector Dialog -->
-    <div class="modal-overlay" id="detail-modal">
-      <div class="modal">
-        <h3
-          style="
-            margin-bottom: 20px;
-            font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;
-          "
-        >
-          Customer Details
-        </h3>
-        <div class="details-panel" id="modal-details-body">
-          <!-- Filled by JS -->
-        </div>
-        <div class="modal-actions" style="margin-top: 24px">
-          <button class="btn-secondary" id="close-modal-btn" style="flex: 1">
-            Close Inspector
-          </button>
+        <!-- Pagination -->
+        <div class="pagination">
+          <div class="page-info" id="pagination-info">Showing 1 to 5 of 20 customers</div>
+          <div class="page-controls" id="pagination-controls"></div>
         </div>
       </div>
+    </main>
+  </div>
+
+  <!-- Detail Inspector Dialog -->
+  <div class="modal-overlay" id="detail-modal">
+    <div class="modal">
+      <h3 style="margin-bottom: 20px; font-family: 'Plus Jakarta Sans', sans-serif;">Customer Details</h3>
+      <div class="details-panel" id="modal-details-body"></div>
+      <div class="modal-actions" style="margin-top: 24px;">
+        <button class="btn-secondary" id="close-modal-btn" style="flex: 1;">Close Inspector</button>
+      </div>
     </div>
-    <div class="toast-msg" id="global-toast-msg"></div>
-    <script src="app.js"></script>
-    <script>
-      // ---------- Customer Sandbox Data & Operations ----------
-      // Mock Customer Database
-      let customersList = JSON.parse(localStorage.getItem("crm_customers"));
-      if (!customersList) {
-        customersList = [
-          {
-            id: 1,
-            name: "Ava Reyes",
-            email: "ava.reyes@example.com",
-            company: "Google Inc.",
-            phone: "+1 (555) 234-5678",
-            status: "Active",
-            lastContact: "2026-07-02",
-            manager: "Deepan Karthick",
-            revenue: "$120,000",
-          },
-          {
-            id: 2,
-            name: "Liam Chen",
-            email: "liam.chen@example.com",
-            company: "Microsoft Corp.",
-            phone: "+1 (555) 987-6543",
-            status: "Active",
-            lastContact: "2026-06-28",
-            manager: "Sarah Connor",
-            revenue: "$85,000",
-          },
-          {
-            id: 3,
-            name: "Mia Patel",
-            email: "mia.patel@example.com",
-            company: "Amazon Web Services",
-            phone: "+1 (555) 345-6789",
-            status: "Lead",
-            lastContact: "2026-07-14",
-            manager: "Deepan Karthick",
-            revenue: "$150,000",
-          },
-          {
-            id: 4,
-            name: "Ethan Nguyen",
-            email: "ethan.nguyen@example.com",
-            company: "Netflix Inc.",
-            phone: "+1 (555) 876-5432",
-            status: "Active",
-            lastContact: "2026-07-05",
-            manager: "John Miller",
-            revenue: "$97,000",
-          },
-          {
-            id: 5,
-            name: "Sofia Garcia",
-            email: "sofia.garcia@example.com",
-            company: "Tesla Motors",
-            phone: "+1 (555) 456-7890",
-            status: "Inactive",
-            lastContact: "2026-05-12",
-            manager: "Sarah Connor",
-            revenue: "$45,000",
-          },
-          {
-            id: 6,
-            name: "Lucas Kim",
-            email: "lucas.kim@example.com",
-            company: "Uber Technologies",
-            phone: "+1 (555) 765-4321",
-            status: "Lead",
-            lastContact: "2026-07-10",
-            manager: "Deepan Karthick",
-            revenue: "$62,000",
-          },
-          {
-            id: 7,
-            name: "Emma Silva",
-            email: "emma.silva@example.com",
-            company: "Meta Platforms",
-            phone: "+1 (555) 567-8901",
-            status: "Active",
-            lastContact: "2026-07-01",
-            manager: "John Miller",
-            revenue: "$210,000",
-          },
-          {
-            id: 8,
-            name: "Owen Brooks",
-            email: "owen.brooks@example.com",
-            company: "Salesforce Inc.",
-            phone: "+1 (555) 654-3210",
-            status: "Inactive",
-            lastContact: "2026-04-19",
-            manager: "Sarah Connor",
-            revenue: "$32,000",
-          },
-          {
-            id: 9,
-            name: "Zara Adams",
-            email: "zara.adams@example.com",
-            company: "Adobe Systems",
-            phone: "+1 (555) 678-9012",
-            status: "Active",
-            lastContact: "2026-07-12",
-            manager: "Deepan Karthick",
-            revenue: "$140,000",
-          },
-          {
-            id: 10,
-            name: "Oliver Davis",
-            email: "oliver.davis@example.com",
-            company: "Intel Corp.",
-            phone: "+1 (555) 321-0987",
-            status: "Lead",
-            lastContact: "2026-07-08",
-            manager: "Sarah Connor",
-            revenue: "$75,000",
-          },
-        ];
-        localStorage.setItem("crm_customers", JSON.stringify(customersList));
-      }
-      // State Variables
-      let currentSearch = "";
-      let selectedStatus = "all";
-      let selectedManager = "all";
-      let currentSortKey = "name";
-      let currentSortOrder = "asc";
-      let currentPage = 1;
-      const itemsPerPage = 5;
-      // Grab elements
-      const tableBody = document.getElementById("customer-table-body");
-      const searchInput = document.getElementById("cust-search");
-      const statusSelect = document.getElementById("status-filter");
-      const managerSelect = document.getElementById("manager-filter");
-      const clearFiltersBtn = document.getElementById("clear-filters-btn");
-      const subCounter = document.getElementById("cust-count-sub");
-      const statusChipsRow = document.getElementById("status-chips");
-      const paginationInfo = document.getElementById("pagination-info");
-      const paginationControls = document.getElementById("pagination-controls");
+  </div>
 
-      // Modal elements
-      const detailModal = document.getElementById("detail-modal");
-      const modalDetailsBody = document.getElementById("modal-details-body");
-      const closeModalBtn = document.getElementById("close-modal-btn");
-      // Init UI
-      initCustomersPanel();
-      function initCustomersPanel() {
-        // Event Listeners
-        searchInput.addEventListener("input", () => {
-          currentSearch = searchInput.value.toLowerCase();
-          currentPage = 1;
-          renderEverything();
-        });
-        statusSelect.addEventListener("change", () => {
-          selectedStatus = statusSelect.value;
-          currentPage = 1;
-          renderEverything();
-        });
-        managerSelect.addEventListener("change", () => {
-          selectedManager = managerSelect.value;
-          currentPage = 1;
-          renderEverything();
-        });
-        clearFiltersBtn.addEventListener("click", () => {
-          searchInput.value = "";
-          statusSelect.value = "all";
-          managerSelect.value = "all";
-          currentSearch = "";
-          selectedStatus = "all";
-          selectedManager = "all";
-          currentPage = 1;
-          renderEverything();
-        });
-        // Sorting Listeners
-        document
-          .getElementById("sort-name")
-          .addEventListener("click", () => handleSorting("name", "sort-name"));
-        document
-          .getElementById("sort-date")
-          .addEventListener("click", () =>
-            handleSorting("lastContact", "sort-date"),
-          );
-        closeModalBtn.addEventListener("click", () => {
-          detailModal.classList.remove("open");
-        });
+  <div class="toast-msg" id="global-toast-msg"></div>
+  <script src="app.js"></script>
+
+  <script>
+    let customersList = JSON.parse(localStorage.getItem('crm_customers'));
+    if (!customersList) {
+      customersList = [
+        { id: 1, name: 'Ava Reyes', email: 'ava.reyes@example.com', company: 'Google Inc.', phone: '+1 (555) 234-5678', status: 'Active', lastContact: '2026-07-02', manager: 'Deepan Karthick', revenue: '$120,000' },
+        { id: 2, name: 'Liam Chen', email: 'liam.chen@example.com', company: 'Microsoft Corp.', phone: '+1 (555) 987-6543', status: 'Active', lastContact: '2026-06-28', manager: 'Sarah Connor', revenue: '$85,000' },
+        { id: 3, name: 'Mia Patel', email: 'mia.patel@example.com', company: 'Amazon Web Services', phone: '+1 (555) 345-6789', status: 'Lead', lastContact: '2026-07-14', manager: 'Deepan Karthick', revenue: '$150,000' },
+        { id: 4, name: 'Ethan Nguyen', email: 'ethan.nguyen@example.com', company: 'Netflix Inc.', phone: '+1 (555) 876-5432', status: 'Active', lastContact: '2026-07-05', manager: 'John Miller', revenue: '$97,000' },
+        { id: 5, name: 'Sofia Garcia', email: 'sofia.garcia@example.com', company: 'Tesla Motors', phone: '+1 (555) 456-7890', status: 'Inactive', lastContact: '2026-05-12', manager: 'Sarah Connor', revenue: '$45,000' },
+        { id: 6, name: 'Lucas Kim', email: 'lucas.kim@example.com', company: 'Uber Technologies', phone: '+1 (555) 765-4321', status: 'Lead', lastContact: '2026-07-10', manager: 'Deepan Karthick', revenue: '$62,000' },
+        { id: 7, name: 'Emma Silva', email: 'emma.silva@example.com', company: 'Meta Platforms', phone: '+1 (555) 567-8901', status: 'Active', lastContact: '2026-07-01', manager: 'John Miller', revenue: '$210,000' },
+        { id: 8, name: 'Owen Brooks', email: 'owen.brooks@example.com', company: 'Salesforce Inc.', phone: '+1 (555) 654-3210', status: 'Inactive', lastContact: '2026-04-19', manager: 'Sarah Connor', revenue: '$32,000' },
+        { id: 9, name: 'Zara Adams', email: 'zara.adams@example.com', company: 'Adobe Systems', phone: '+1 (555) 678-9012', status: 'Active', lastContact: '2026-07-12', manager: 'Deepan Karthick', revenue: '$140,000' },
+        { id: 10, name: 'Oliver Davis', email: 'oliver.davis@example.com', company: 'Intel Corp.', phone: '+1 (555) 321-0987', status: 'Lead', lastContact: '2026-07-08', manager: 'Sarah Connor', revenue: '$75,000' }
+      ];
+      localStorage.setItem('crm_customers', JSON.stringify(customersList));
+    }
+
+    let currentSearch = '';
+    let selectedStatus = 'all';
+    let selectedManager = 'all';
+    let currentSortKey = 'name';
+    let currentSortOrder = 'asc';
+    let currentPage = 1;
+    const itemsPerPage = 5;
+
+    const tableBody = document.getElementById('customer-table-body');
+    const searchInput = document.getElementById('cust-search');
+    const statusSelect = document.getElementById('status-filter');
+    const managerSelect = document.getElementById('manager-filter');
+    const clearFiltersBtn = document.getElementById('clear-filters-btn');
+    const subCounter = document.getElementById('cust-count-sub');
+    const statusChipsRow = document.getElementById('status-chips');
+    const paginationInfo = document.getElementById('pagination-info');
+    const paginationControls = document.getElementById('pagination-controls');
+    
+    const detailModal = document.getElementById('detail-modal');
+    const modalDetailsBody = document.getElementById('modal-details-body');
+    const closeModalBtn = document.getElementById('close-modal-btn');
+
+    initCustomersPanel();
+
+    function initCustomersPanel() {
+      searchInput.addEventListener('input', () => {
+        currentSearch = searchInput.value.toLowerCase();
+        currentPage = 1;
         renderEverything();
-      }
-      function handleSorting(key, elementId) {
-        if (currentSortKey === key) {
-          currentSortOrder = currentSortOrder === "asc" ? "desc" : "asc";
-        } else {
-          currentSortKey = key;
-          currentSortOrder = "asc";
-        }
+      });
 
-        // Update arrows UI
-        document
-          .querySelectorAll(".sort-icon")
-          .forEach((icon) => icon.classList.remove("active"));
-        const activeIcon = document.querySelector(`#${elementId} .sort-icon`);
-        activeIcon.classList.add("active");
-        activeIcon.textContent = currentSortOrder === "asc" ? "▲" : "▼";
-
+      statusSelect.addEventListener('change', () => {
+        selectedStatus = statusSelect.value;
+        currentPage = 1;
         renderEverything();
-      }
-      function getFilteredData() {
-        return customersList.filter((c) => {
-          const matchesSearch =
-            c.name.toLowerCase().includes(currentSearch) ||
-            c.email.toLowerCase().includes(currentSearch) ||
-            c.company.toLowerCase().includes(currentSearch);
-          const matchesStatus =
-            selectedStatus === "all" || c.status === selectedStatus;
-          const matchesManager =
-            selectedManager === "all" || c.manager === selectedManager;
-          return matchesSearch && matchesStatus && matchesManager;
-        });
-      }
-      function sortData(list) {
-        list.sort((a, b) => {
-          let valA = a[currentSortKey].toLowerCase();
-          let valB = b[currentSortKey].toLowerCase();
+      });
 
-          if (valA < valB) return currentSortOrder === "asc" ? -1 : 1;
-          if (valA > valB) return currentSortOrder === "asc" ? 1 : -1;
-          return 0;
-        });
-      }
-      function renderStatusChips() {
-        statusChipsRow.innerHTML = "";
+      managerSelect.addEventListener('change', () => {
+        selectedManager = managerSelect.value;
+        currentPage = 1;
+        renderEverything();
+      });
 
-        const counts = {
-          all: customersList.length,
-          Active: 0,
-          Lead: 0,
-          Inactive: 0,
-        };
-        customersList.forEach((c) => {
-          if (counts[c.status] !== undefined) counts[c.status]++;
-        });
-        const items = [
-          { label: "All Accounts", val: "all", color: "#e8a23d" },
-          { label: "Active", val: "Active", color: "#10b981" },
-          { label: "Leads", val: "Lead", color: "#3b82f6" },
-          { label: "Inactive", val: "Inactive", color: "#626a7a" },
-        ];
-        items.forEach((item) => {
-          const chip = document.createElement("div");
-          chip.className = `status-chip ${selectedStatus === item.val ? "active" : ""}`;
-          chip.innerHTML = `
+      clearFiltersBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        statusSelect.value = 'all';
+        managerSelect.value = 'all';
+        currentSearch = '';
+        selectedStatus = 'all';
+        selectedManager = 'all';
+        currentPage = 1;
+        renderEverything();
+      });
+
+      document.getElementById('sort-name').addEventListener('click', () => handleSorting('name', 'sort-name'));
+      document.getElementById('sort-date').addEventListener('click', () => handleSorting('lastContact', 'sort-date'));
+
+      closeModalBtn.addEventListener('click', () => {
+        detailModal.classList.remove('open');
+      });
+
+      renderEverything();
+    }
+
+    function handleSorting(key, elementId) {
+      if (currentSortKey === key) {
+        currentSortOrder = currentSortOrder === 'asc' ? 'desc' : 'asc';
+      } else {
+        currentSortKey = key;
+        currentSortOrder = 'asc';
+      }
+      
+      document.querySelectorAll('.sort-icon').forEach(icon => icon.classList.remove('active'));
+      const activeIcon = document.querySelector(`#${elementId} .sort-icon`);
+      activeIcon.classList.add('active');
+      activeIcon.textContent = currentSortOrder === 'asc' ? '▲' : '▼';
+      
+      renderEverything();
+    }
+
+    function getFilteredData() {
+      return customersList.filter(c => {
+        const matchesSearch = c.name.toLowerCase().includes(currentSearch) || 
+                              c.email.toLowerCase().includes(currentSearch) ||
+                              c.company.toLowerCase().includes(currentSearch);
+        const matchesStatus = selectedStatus === 'all' || c.status === selectedStatus;
+        const matchesManager = selectedManager === 'all' || c.manager === selectedManager;
+        return matchesSearch && matchesStatus && matchesManager;
+      });
+    }
+
+    function sortData(list) {
+      list.sort((a, b) => {
+        let valA = a[currentSortKey].toLowerCase();
+        let valB = b[currentSortKey].toLowerCase();
+        if (valA < valB) return currentSortOrder === 'asc' ? -1 : 1;
+        if (valA > valB) return currentSortOrder === 'asc' ? 1 : -1;
+        return 0;
+      });
+    }
+
+    function renderStatusChips() {
+      statusChipsRow.innerHTML = '';
+      const counts = { all: customersList.length, Active: 0, Lead: 0, Inactive: 0 };
+      customersList.forEach(c => {
+        if (counts[c.status] !== undefined) counts[c.status]++;
+      });
+
+      const items = [
+        { label: 'All Accounts', val: 'all', color: '#e8a23d' },
+        { label: 'Active', val: 'Active', color: '#10b981' },
+        { label: 'Leads', val: 'Lead', color: '#3b82f6' },
+        { label: 'Inactive', val: 'Inactive', color: '#626a7a' }
+      ];
+
+      items.forEach(item => {
+        const chip = document.createElement('div');
+        chip.className = `status-chip ${selectedStatus === item.val ? 'active' : ''}`;
+        chip.innerHTML = `
           <span class="dot" style="background-color: ${item.color};"></span>
           <span>${item.label}</span>
           <b>${counts[item.val]}</b>
         `;
-          chip.addEventListener("click", () => {
-            selectedStatus = item.val;
-            statusSelect.value = item.val;
-            currentPage = 1;
-            renderEverything();
-          });
-          statusChipsRow.appendChild(chip);
+        chip.addEventListener('click', () => {
+          selectedStatus = item.val;
+          statusSelect.value = item.val;
+          currentPage = 1;
+          renderEverything();
         });
+        statusChipsRow.appendChild(chip);
+      });
+    }
+
+    function renderTable() {
+      tableBody.innerHTML = '';
+      const filtered = getFilteredData();
+      sortData(filtered);
+
+      const totalItems = filtered.length;
+      const totalPages = Math.ceil(totalItems / itemsPerPage) || 1;
+      if (currentPage > totalPages) currentPage = totalPages;
+
+      const startIndex = (currentPage - 1) * itemsPerPage;
+      const endIndex = Math.min(startIndex + itemsPerPage, totalItems);
+      const pageItems = filtered.slice(startIndex, endIndex);
+
+      if (currentSearch !== '' || selectedStatus !== 'all' || selectedManager !== 'all') {
+        clearFiltersBtn.classList.add('show');
+      } else {
+        clearFiltersBtn.classList.remove('show');
       }
-      function renderTable() {
-        tableBody.innerHTML = "";
-        const filtered = getFilteredData();
-        sortData(filtered);
-        // Pagination bounds
-        const totalItems = filtered.length;
-        const totalPages = Math.ceil(totalItems / itemsPerPage) || 1;
-        if (currentPage > totalPages) currentPage = totalPages;
-        const startIndex = (currentPage - 1) * itemsPerPage;
-        const endIndex = Math.min(startIndex + itemsPerPage, totalItems);
-        const pageItems = filtered.slice(startIndex, endIndex);
-        // Clear filters visibility logic
-        if (
-          currentSearch !== "" ||
-          selectedStatus !== "all" ||
-          selectedManager !== "all"
-        ) {
-          clearFiltersBtn.classList.add("show");
-        } else {
-          clearFiltersBtn.classList.remove("show");
-        }
-        // Update counters sub header
-        subCounter.textContent = `Displaying ${filtered.length} matching accounts out of ${customersList.length} total`;
-        // Render Empty state
-        if (pageItems.length === 0) {
-          tableBody.innerHTML = `
+
+      subCounter.textContent = `Displaying ${filtered.length} matching accounts out of ${customersList.length} total`;
+
+      if (pageItems.length === 0) {
+        tableBody.innerHTML = `
           <tr>
             <td colspan="7" style="text-align:center; padding: 40px; color: var(--text-muted);">
               <i data-lucide="user-x" style="width: 32px; height: 32px; margin-bottom: 10px;"></i>
@@ -484,24 +329,21 @@
             </td>
           </tr>
         `;
-          lucide.createIcons();
-          renderPaginationControls(1, 1);
-          paginationInfo.textContent = "Showing 0 to 0 of 0 customers";
-          return;
-        }
-        // Populate rows
-        pageItems.forEach((cust) => {
-          const row = document.createElement("tr");
+        lucide.createIcons();
+        renderPaginationControls(1, 1);
+        paginationInfo.textContent = 'Showing 0 to 0 of 0 customers';
+        return;
+      }
 
-          let initials = cust.name
-            .split(" ")
-            .map((n) => n[0])
-            .join("");
-          let statusClass = "badge-pending";
-          if (cust.status === "Active") statusClass = "badge-shipped";
-          if (cust.status === "Inactive") statusClass = "badge-refunded";
-          if (cust.status === "Lead") statusClass = "badge-processing";
-          row.innerHTML = `
+      pageItems.forEach(cust => {
+        const row = document.createElement('tr');
+        let initials = cust.name.split(' ').map(n=>n[0]).join('');
+        let statusClass = 'badge-pending';
+        if (cust.status === 'Active') statusClass = 'badge-shipped';
+        if (cust.status === 'Inactive') statusClass = 'badge-refunded';
+        if (cust.status === 'Lead') statusClass = 'badge-processing';
+
+        row.innerHTML = `
           <td>
             <div class="cell-flex">
               <div class="avatar-initials">${initials}</div>
@@ -522,59 +364,56 @@
             </button>
           </td>
         `;
-          // Row details click event
-          row.querySelector(".view-details").addEventListener("click", () => {
-            showCustomerDetails(cust);
-          });
-          tableBody.appendChild(row);
+
+        row.querySelector('.view-details').addEventListener('click', () => {
+          showCustomerDetails(cust);
         });
-        lucide.createIcons();
-        paginationInfo.textContent = `Showing ${startIndex + 1} to ${endIndex} of ${totalItems} customers`;
-        renderPaginationControls(currentPage, totalPages);
-      }
-      function renderPaginationControls(current, total) {
-        paginationControls.innerHTML = "";
-        // Prev Button
-        const prevBtn = document.createElement("button");
-        prevBtn.className = "page-btn";
-        prevBtn.innerHTML =
-          '<i data-lucide="chevron-left" style="width: 16px; height: 16px;"></i>';
-        prevBtn.disabled = current === 1;
-        prevBtn.addEventListener("click", () => {
-          currentPage--;
+        tableBody.appendChild(row);
+      });
+
+      lucide.createIcons();
+      paginationInfo.textContent = `Showing ${startIndex + 1} to ${endIndex} of ${totalItems} customers`;
+      renderPaginationControls(currentPage, totalPages);
+    }
+
+    function renderPaginationControls(current, total) {
+      paginationControls.innerHTML = '';
+      const prevBtn = document.createElement('button');
+      prevBtn.className = 'page-btn';
+      prevBtn.innerHTML = '<i data-lucide="chevron-left" style="width: 16px; height: 16px;"></i>';
+      prevBtn.disabled = current === 1;
+      prevBtn.addEventListener('click', () => {
+        currentPage--;
+        renderTable();
+      });
+      paginationControls.appendChild(prevBtn);
+
+      for (let i = 1; i <= total; i++) {
+        const numBtn = document.createElement('button');
+        numBtn.className = `page-btn ${i === current ? 'active' : ''}`;
+        numBtn.textContent = i;
+        numBtn.addEventListener('click', () => {
+          currentPage = i;
           renderTable();
         });
-        paginationControls.appendChild(prevBtn);
-        // Page numbers
-        for (let i = 1; i <= total; i++) {
-          const numBtn = document.createElement("button");
-          numBtn.className = `page-btn ${i === current ? "active" : ""}`;
-          numBtn.textContent = i;
-          numBtn.addEventListener("click", () => {
-            currentPage = i;
-            renderTable();
-          });
-          paginationControls.appendChild(numBtn);
-        }
-        // Next Button
-        const nextBtn = document.createElement("button");
-        nextBtn.className = "page-btn";
-        nextBtn.innerHTML =
-          '<i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i>';
-        nextBtn.disabled = current === total;
-        nextBtn.addEventListener("click", () => {
-          currentPage++;
-          renderTable();
-        });
-        paginationControls.appendChild(nextBtn);
-        lucide.createIcons();
+        paginationControls.appendChild(numBtn);
       }
-      function showCustomerDetails(cust) {
-        let initials = cust.name
-          .split(" ")
-          .map((n) => n[0])
-          .join("");
-        modalDetailsBody.innerHTML = `
+
+      const nextBtn = document.createElement('button');
+      nextBtn.className = 'page-btn';
+      nextBtn.innerHTML = '<i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i>';
+      nextBtn.disabled = current === total;
+      nextBtn.addEventListener('click', () => {
+        currentPage++;
+        renderTable();
+      });
+      paginationControls.appendChild(nextBtn);
+      lucide.createIcons();
+    }
+
+    function showCustomerDetails(cust) {
+      let initials = cust.name.split(' ').map(n=>n[0]).join('');
+      modalDetailsBody.innerHTML = `
         <div class="details-header">
           <div class="avatar">${initials}</div>
           <div>
@@ -609,12 +448,13 @@
           </div>
         </div>
       `;
-        detailModal.classList.add("open");
-      }
-      function renderEverything() {
-        renderStatusChips();
-        renderTable();
-      }
-    </script>
-  </body>
+      detailModal.classList.add('open');
+    }
+
+    function renderEverything() {
+      renderStatusChips();
+      renderTable();
+    }
+  </script>
+</body>
 </html>
