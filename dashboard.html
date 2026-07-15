@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DK CRM - Dashboard Sandbox</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Lucide Icons & Chart.js CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+  </head>
+  <body>
+    <!-- App Shell Layout -->
+    <div class="app">
+      <!-- SIDEBAR -->
+      <aside class="sidebar" id="app-sidebar">
+        <div>
+          <div class="brand">
+            <i
+              data-lucide="shield-check"
+              style="stroke-width: 2.5; width: 24px; height: 24px"
+            ></i>
+            <span>DK CRM</span>
+          </div>
+          <nav>
+            <div class="nav-label">Workspace</div>
+            <a href="dashboard.html">
+              <div class="nav-item">
+                <i data-lucide="layout-dashboard"></i>
+                <span>Dashboard</span>
+              </div>
+            </a>
+            <a href="customer.html">
+              <div class="nav-item">
+                <i data-lucide="users"></i>
+                <span>Customers</span>
+              </div>
+            </a>
+            <a href="order.html">
+              <div class="nav-item">
+                <i data-lucide="shopping-cart"></i>
+                <span>Orders</span>
+              </div>
+            </a>
+            <div class="nav-label">Account</div>
+            <a href="settings.html">
+              <div class="nav-item">
+                <i data-lucide="settings"></i>
+                <span>Settings</span>
+              </div>
+            </a>
+          </nav>
+        </div>
+        <div class="sidebar-footer">
+          <div class="user-profile">
+            <div class="avatar">DK</div>
+            <div class="user-details">
+              <div class="user-name">Deepan Karthick</div>
+              <div class="user-role">Sales Director</div>
+            </div>
+          </div>
+          <button class="logout-btn" id="logoutBtn">
+            <i data-lucide="log-out" style="width: 14px; height: 14px"></i>
+            <span>Sign Out</span>
+          </button>
+        </div>
+      </aside>
+      <!-- MAIN VIEWPORT -->
+      <main class="main">
+        <!-- TOPBAR -->
+        <header class="topbar">
+          <div class="topbar-title-wrap">
+            <button
+              class="menu-toggle"
+              id="sidebar-toggle-btn"
+              aria-label="Toggle Sidebar Menu"
+            >
+              <i data-lucide="menu"></i>
+            </button>
+            <div>
+              <h1>Dashboard</h1>
+              <div class="subtitle">
+                Welcome back, Deepan. Here's a live check-in of your business.
+              </div>
+            </div>
+          </div>
+          <div class="topbar-actions">
+            <div class="search-box">
+              <i data-lucide="search" style="width: 16px; height: 16px"></i>
+              <input type="text" placeholder="Global search..." />
+            </div>
+
+            <button class="icon-btn" id="notif-bell" aria-label="Notifications">
+              <i data-lucide="bell" style="width: 18px; height: 18px"></i>
+              <!-- Unread badge dynamically rendered here by app.js -->
+            </button>
+
+            <button
+              class="icon-btn"
+              id="theme-toggle-btn"
+              aria-label="Toggle Light/Dark Theme"
+            >
+              <i
+                data-lucide="moon"
+                id="theme-icon"
+                style="width: 18px; height: 18px"
+              ></i>
+            </button>
+          </div>
+        </header>
+        <!-- Welcome Banner -->
+        <div class="welcome-banner">
+          <h2>Live Workspace Running</h2>
+          <p>
+            This is a frontend sandbox workspace with fully interactive
+            navigation, theme modes, notifications dropdown, customers database,
+            orders lists, and charts.
+          </p>
+        </div>
+        <!-- KPI CARDS -->
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-head">
+              <span class="kpi-label">Total Revenue</span>
+              <div class="kpi-icon-wrap">
+                <i
+                  data-lucide="dollar-sign"
+                  style="width: 16px; height: 16px"
+                ></i>
+              </div>
+            </div>
+            <div class="kpi-value">$284,650</div>
+            <div class="kpi-trend up">
+              <i
+                data-lucide="arrow-up-right"
+                style="width: 14px; height: 14px"
+              ></i>
+              <span>12.4% vs last mo.</span>
+            </div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-head">
+              <span class="kpi-label">Active Customers</span>
+              <div class="kpi-icon-wrap">
+                <i data-lucide="users" style="width: 16px; height: 16px"></i>
+              </div>
+            </div>
+            <div class="kpi-value">1,284</div>
+            <div class="kpi-trend up">
+              <i
+                data-lucide="arrow-up-right"
+                style="width: 14px; height: 14px"
+              ></i>
+              <span>4.2% vs last mo.</span>
+            </div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-head">
+              <span class="kpi-label">New Customers</span>
+              <div class="kpi-icon-wrap">
+                <i
+                  data-lucide="user-plus"
+                  style="width: 16px; height: 16px"
+                ></i>
+              </div>
+            </div>
+            <div class="kpi-value">86</div>
+            <div class="kpi-trend up">
+              <i
+                data-lucide="arrow-up-right"
+                style="width: 14px; height: 14px"
+              ></i>
+              <span>18.0% vs last mo.</span>
+            </div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-head">
+              <span class="kpi-label">Win Rate</span>
+              <div class="kpi-icon-wrap">
+                <i data-lucide="award" style="width: 16px; height: 16px"></i>
+              </div>
+            </div>
+            <div class="kpi-value">32.4%</div>
+            <div class="kpi-trend down">
+              <i
+                data-lucide="arrow-down-right"
+                style="width: 14px; height: 14px"
+              ></i>
+              <span>2.1% vs last mo.</span>
+            </div>
+          </div>
+        </div>
+        <!-- CHARTS SECTION -->
+        <div class="charts-grid">
+          <!-- Revenue Trend -->
+          <div class="panel">
+            <div class="panel-header">
+              <div class="panel-title">
+                <h3>Revenue Trend</h3>
+                <div class="sub">Booked monthly revenue trend</div>
+              </div>
+              <div class="panel-ctrls">
+                <div class="btn-toggle-row">
+                  <button class="active">30D</button>
+                  <button>90D</button>
+                  <button>12M</button>
+                </div>
+              </div>
+            </div>
+            <div class="chart-container">
+              <canvas id="revenueChart"></canvas>
+            </div>
+            <div class="chart-stats-row">
+              <div class="chart-stat-item">
+                <h4 id="tot-rev">$284,650</h4>
+                <p>Total Booked</p>
+              </div>
+              <div class="chart-stat-item">
+                <h4>+12.4%</h4>
+                <p>Growth Rate</p>
+              </div>
+              <div class="chart-stat-item">
+                <h4>$9,488</h4>
+                <p>Daily Average</p>
+              </div>
+            </div>
+          </div>
+          <!-- Deals By Stage -->
+          <div class="panel">
+            <div class="panel-header">
+              <div class="panel-title">
+                <h3>Pipeline Stage</h3>
+                <div class="sub">Open contracts (122 total deals)</div>
+              </div>
+            </div>
+            <div class="chart-container">
+              <canvas id="stageChart"></canvas>
+            </div>
+            <div class="chart-stats-row">
+              <div class="chart-stat-item">
+                <h4>122</h4>
+                <p>Active Deals</p>
+              </div>
+              <div class="chart-stat-item">
+                <h4>23</h4>
+                <p>Closed Won</p>
+              </div>
+              <div class="chart-stat-item">
+                <h4>18.8%</h4>
+                <p>Win Rate</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- RECENT ACTIVITY & DEALS -->
+        <div class="charts-grid even">
+          <!-- Recent Activities -->
+          <div class="panel">
+            <div class="panel-header">
+              <div class="panel-title">
+                <h3>Recent Activity</h3>
+                <div class="sub">Updates across your workspace</div>
+              </div>
+            </div>
+            <div class="activity-list">
+              <div class="activity-item">
+                <div class="activity-content">
+                  <div class="activity-icon">
+                    <i
+                      data-lucide="check-circle-2"
+                      style="width: 16px; height: 16px"
+                    ></i>
+                  </div>
+                  <div class="activity-info">
+                    <h5>Google Deal Closed</h5>
+                    <p>Enterprise Subscription Package</p>
+                  </div>
+                </div>
+                <div class="activity-val plus">+$12,000</div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-content">
+                  <div class="activity-icon">
+                    <i
+                      data-lucide="user-plus"
+                      style="width: 16px; height: 16px"
+                    ></i>
+                  </div>
+                  <div class="activity-info">
+                    <h5>New Customer Joined</h5>
+                    <p>Microsoft Corporation contacts added</p>
+                  </div>
+                </div>
+                <div class="activity-val badge">New</div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-content">
+                  <div class="activity-icon">
+                    <i
+                      data-lucide="credit-card"
+                      style="width: 16px; height: 16px"
+                    ></i>
+                  </div>
+                  <div class="activity-info">
+                    <h5>Invoice Payment Received</h5>
+                    <p>Amazon Web Services invoice #39281</p>
+                  </div>
+                </div>
+                <div class="activity-val plus">+$8,500</div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-content">
+                  <div class="activity-icon">
+                    <i
+                      data-lucide="calendar"
+                      style="width: 16px; height: 16px"
+                    ></i>
+                  </div>
+                  <div class="activity-info">
+                    <h5>Team Meeting Scheduled</h5>
+                    <p>Netflix alignment sync tomorrow</p>
+                  </div>
+                </div>
+                <div class="activity-val badge">Tomorrow</div>
+              </div>
+            </div>
+          </div>
+          <!-- Recent Deals Table -->
+          <div class="panel table-panel">
+            <div class="table-panel-header">
+              <div class="panel-title">
+                <h3>Recent Contracts</h3>
+                <div class="sub">Pipeline contract values & status</div>
+              </div>
+            </div>
+            <div class="table-scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Customer</th>
+                    <th>Status</th>
+                    <th>Value</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="cell-flex">
+                        <div class="avatar-initials">G</div>
+                        <div>
+                          <div class="cust-name-title">Google</div>
+                          <div class="cust-email-sub">
+                            enterprise@google.com
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="status-badge badge-shipped">Won</span></td>
+                    <td>
+                      <strong style="color: var(--success)">$12,000</strong>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="cell-flex">
+                        <div class="avatar-initials">M</div>
+                        <div>
+                          <div class="cust-name-title">Microsoft</div>
+                          <div class="cust-email-sub">azure@microsoft.com</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <span class="status-badge badge-pending">Pending</span>
+                    </td>
+                    <td><strong>$8,500</strong></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="cell-flex">
+                        <div class="avatar-initials">A</div>
+                        <div>
+                          <div class="cust-name-title">Amazon</div>
+                          <div class="cust-email-sub">cloud@amazon.com</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <span class="status-badge badge-processing"
+                        >Processing</span
+                      >
+                    </td>
+                    <td><strong>$15,000</strong></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="cell-flex">
+                        <div class="avatar-initials">N</div>
+                        <div>
+                          <div class="cust-name-title">Netflix</div>
+                          <div class="cust-email-sub">video@netflix.com</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td><span class="status-badge badge-shipped">Won</span></td>
+                    <td>
+                      <strong style="color: var(--success)">$9,700</strong>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <div class="toast-msg" id="global-toast-msg"></div>
+    <script src="app.js"></script>
+    <script>
+      // ---------- Dashboard Local Chart Scripts ----------
+
+      // Check theme to color chart axes and labels correctly
+      function getChartThemeColors() {
+        const isLight = document.body.classList.contains("light-theme");
+        return {
+          text: isLight ? "#4b5563" : "#9aa2b1",
+          grid: isLight ? "rgba(0, 0, 0, 0.05)" : "rgba(255, 255, 255, 0.05)",
+        };
+      }
+
+      // Revenue Line Chart
+      let revenueChart;
+      function renderRevenueChart() {
+        const colors = getChartThemeColors();
+        const ctx = document.getElementById("revenueChart").getContext("2d");
+
+        if (revenueChart) revenueChart.destroy();
+
+        revenueChart = new Chart(ctx, {
+          type: "line",
+          data: {
+            labels: [
+              "Jan",
+              "Feb",
+              "Mar",
+              "Apr",
+              "May",
+              "Jun",
+              "Jul",
+              "Aug",
+              "Sep",
+              "Oct",
+              "Nov",
+              "Dec",
+            ],
+            datasets: [
+              {
+                label: "Booked Revenue ($)",
+                data: [
+                  12000, 19000, 15000, 24000, 22000, 30000, 28000, 35000, 32000,
+                  42000, 38000, 48000,
+                ],
+                borderColor: "#e8a23d",
+                backgroundColor: "rgba(232, 162, 61, 0.05)",
+                borderWidth: 3,
+                fill: true,
+                tension: 0.4,
+                pointRadius: 4,
+                pointHoverRadius: 6,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+            },
+            scales: {
+              x: {
+                grid: { display: false },
+                ticks: {
+                  color: colors.text,
+                  font: { family: "Inter", size: 11 },
+                },
+              },
+              y: {
+                grid: { color: colors.grid },
+                ticks: {
+                  color: colors.text,
+                  font: { family: "Inter", size: 11 },
+                },
+              },
+            },
+          },
+        });
+      }
+      // Pipeline Stages Pie/Doughnut Chart
+      let stageChart;
+      function renderStageChart() {
+        const colors = getChartThemeColors();
+        const ctx = document.getElementById("stageChart").getContext("2d");
+
+        if (stageChart) stageChart.destroy();
+
+        stageChart = new Chart(ctx, {
+          type: "doughnut",
+          data: {
+            labels: ["Lead", "Contacted", "Proposal", "Negotiation", "Won"],
+            datasets: [
+              {
+                data: [35, 25, 20, 15, 27],
+                backgroundColor: [
+                  "#626a7a",
+                  "#3b82f6",
+                  "#f59e0b",
+                  "#e8a23d",
+                  "#10b981",
+                ],
+                borderWidth: 2,
+                borderColor: document.body.classList.contains("light-theme")
+                  ? "#ffffff"
+                  : "#111520",
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: "right",
+                labels: {
+                  color: colors.text,
+                  font: { family: "Inter", size: 11 },
+                },
+              },
+            },
+            cutout: "65%",
+          },
+        });
+      }
+      // Render charts initially
+      renderRevenueChart();
+      renderStageChart();
+      // Listen to theme toggle changes to update charts styling dynamically
+      document
+        .getElementById("theme-toggle-btn")
+        .addEventListener("click", () => {
+          setTimeout(() => {
+            renderRevenueChart();
+            renderStageChart();
+          }, 100);
+        });
+    </script>
+  </body>
+</html>
