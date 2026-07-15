@@ -1,440 +1,305 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DK CRM - Orders Sandbox</title>
-    <link rel="stylesheet" href="style.css" />
-    <!-- Lucide Icons CDN -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-  </head>
-  <body>
-    <div class="app">
-      <!-- SIDEBAR -->
-      <aside class="sidebar" id="app-sidebar">
-        <div>
-          <div class="brand">
-            <i
-              data-lucide="shield-check"
-              style="stroke-width: 2.5; width: 24px; height: 24px"
-            ></i>
-            <span>DK CRM</span>
-          </div>
-          <nav>
-            <div class="nav-label">Workspace</div>
-            <a href="dashboard.html">
-              <div class="nav-item">
-                <i data-lucide="layout-dashboard"></i>
-                <span>Dashboard</span>
-              </div>
-            </a>
-            <a href="customer.html">
-              <div class="nav-item">
-                <i data-lucide="users"></i>
-                <span>Customers</span>
-              </div>
-            </a>
-            <a href="order.html">
-              <div class="nav-item">
-                <i data-lucide="shopping-cart"></i>
-                <span>Orders</span>
-              </div>
-            </a>
-            <div class="nav-label">Account</div>
-            <a href="settings.html">
-              <div class="nav-item">
-                <i data-lucide="settings"></i>
-                <span>Settings</span>
-              </div>
-            </a>
-          </nav>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DK CRM - Orders Sandbox</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div class="app">
+    
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="app-sidebar">
+      <div>
+        <div class="brand">
+          <i data-lucide="shield-check" style="stroke-width: 2.5; width: 24px; height: 24px;"></i>
+          <span>DK CRM</span>
         </div>
-        <div class="sidebar-footer">
-          <div class="user-profile">
-            <div class="avatar">DK</div>
-            <div class="user-details">
-              <div class="user-name">Deepan Karthick</div>
-              <div class="user-role">Sales Director</div>
+        <nav>
+          <div class="nav-label">Workspace</div>
+          <a href="dashboard.html">
+            <div class="nav-item">
+              <i data-lucide="layout-dashboard"></i>
+              <span>Dashboard</span>
             </div>
+          </a>
+          <a href="customer.html">
+            <div class="nav-item">
+              <i data-lucide="users"></i>
+              <span>Customers</span>
+            </div>
+          </a>
+          <a href="order.html">
+            <div class="nav-item">
+              <i data-lucide="shopping-cart"></i>
+              <span>Orders</span>
+            </div>
+          </a>
+          <div class="nav-label">Account</div>
+          <a href="settings.html">
+            <div class="nav-item">
+              <i data-lucide="settings"></i>
+              <span>Settings</span>
+            </div>
+          </a>
+        </nav>
+      </div>
+      <div class="sidebar-footer">
+        <div class="user-profile">
+          <div class="avatar">DK</div>
+          <div class="user-details">
+            <div class="user-name">Deepan Karthick</div>
+            <div class="user-role">Sales Director</div>
           </div>
-          <button class="logout-btn" id="logoutBtn">
-            <i data-lucide="log-out" style="width: 14px; height: 14px"></i>
-            <span>Sign Out</span>
+        </div>
+        <button class="logout-btn" id="logoutBtn">
+          <i data-lucide="log-out" style="width: 14px; height: 14px;"></i>
+          <span>Sign Out</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- MAIN SECTION -->
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-title-wrap">
+          <button class="menu-toggle" id="sidebar-toggle-btn" aria-label="Toggle Sidebar Menu">
+            <i data-lucide="menu"></i>
+          </button>
+          <div>
+            <h1>Orders</h1>
+            <div class="subtitle" id="subtitleCount">Manage workspace orders list & transactions</div>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <div class="search-box">
+            <i data-lucide="search" style="width: 16px; height: 16px;"></i>
+            <input type="text" id="searchInput" placeholder="Search order ID or customer...">
+          </div>
+          <button class="icon-btn" id="notif-bell" aria-label="Notifications">
+            <i data-lucide="bell" style="width: 18px; height: 18px;"></i>
+          </button>
+          <button class="icon-btn" id="theme-toggle-btn" aria-label="Toggle Light/Dark Theme">
+            <i data-lucide="moon" id="theme-icon" style="width: 18px; height: 18px;"></i>
           </button>
         </div>
-      </aside>
-      <!-- MAIN SECTION -->
-      <main class="main">
-        <!-- TOPBAR -->
-        <header class="topbar">
-          <div class="topbar-title-wrap">
-            <button
-              class="menu-toggle"
-              id="sidebar-toggle-btn"
-              aria-label="Toggle Sidebar Menu"
-            >
-              <i data-lucide="menu"></i>
-            </button>
-            <div>
-              <h1>Orders</h1>
-              <div class="subtitle" id="subtitleCount">
-                Manage workspace orders list & transactions
-              </div>
-            </div>
-          </div>
-          <div class="topbar-actions">
-            <div class="search-box">
-              <i data-lucide="search" style="width: 16px; height: 16px"></i>
-              <input
-                type="text"
-                id="searchInput"
-                placeholder="Search order ID or customer..."
-              />
-            </div>
+      </header>
 
-            <button class="icon-btn" id="notif-bell" aria-label="Notifications">
-              <i data-lucide="bell" style="width: 18px; height: 18px"></i>
-            </button>
+      <div class="status-summary" id="statusSummary"></div>
 
-            <button
-              class="icon-btn"
-              id="theme-toggle-btn"
-              aria-label="Toggle Light/Dark Theme"
-            >
-              <i
-                data-lucide="moon"
-                id="theme-icon"
-                style="width: 18px; height: 18px"
-              ></i>
-            </button>
-          </div>
-        </header>
-        <!-- Status Summary Chips (Filled by JS) -->
-        <div class="status-summary" id="statusSummary"></div>
-        <!-- Filters & Toolbar -->
-        <div class="toolbar">
-          <select id="statusFilter" class="filter-select">
-            <option value="all">All Statuses</option>
-            <option value="Pending">Pending</option>
-            <option value="Processing">Processing</option>
-            <option value="Shipped">Shipped</option>
-            <option value="Delivered">Delivered</option>
-            <option value="Cancelled">Cancelled</option>
-            <option value="Refunded">Refunded</option>
-          </select>
-          <select id="dateFilter" class="filter-select">
-            <option value="all">All Time</option>
-            <option value="7">Last 7 Days</option>
-            <option value="30">Last 30 Days</option>
-            <option value="90">Last 90 Days</option>
-          </select>
-          <span class="clear-filters" id="clearFilters">Clear filters ✕</span>
+      <!-- Filters & Toolbar -->
+      <div class="toolbar">
+        <select id="statusFilter" class="filter-select">
+          <option value="all">All Statuses</option>
+          <option value="Pending">Pending</option>
+          <option value="Processing">Processing</option>
+          <option value="Shipped">Shipped</option>
+          <option value="Delivered">Delivered</option>
+          <option value="Cancelled">Cancelled</option>
+          <option value="Refunded">Refunded</option>
+        </select>
+        <select id="dateFilter" class="filter-select">
+          <option value="all">All Time</option>
+          <option value="7">Last 7 Days</option>
+          <option value="30">Last 30 Days</option>
+          <option value="90">Last 90 Days</option>
+        </select>
+        <span class="clear-filters" id="clearFilters">Clear filters ✕</span>
+      </div>
+
+      <!-- Orders Table Panel -->
+      <div class="panel table-panel">
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th class="sortable" data-key="id">Order ID <span class="sort-icon" id="arrow-id">▼</span></th>
+                <th class="sortable" data-key="customer">Customer <span class="sort-icon" id="arrow-customer">▼</span></th>
+                <th class="sortable" data-key="date">Date <span class="sort-icon active" id="arrow-date">▼</span></th>
+                <th class="sortable" data-key="amount" style="text-align: right;">Amount <span class="sort-icon" id="arrow-amount">▼</span></th>
+                <th>Status</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+          </table>
         </div>
-        <!-- Orders Table Panel -->
-        <div class="panel table-panel">
-          <div class="table-scroll">
-            <table>
-              <thead>
-                <tr>
-                  <th class="sortable" data-key="id">
-                    Order ID <span class="sort-icon" id="arrow-id">▼</span>
-                  </th>
-                  <th class="sortable" data-key="customer">
-                    Customer
-                    <span class="sort-icon" id="arrow-customer">▼</span>
-                  </th>
-                  <th class="sortable" data-key="date">
-                    Date <span class="sort-icon active" id="arrow-date">▼</span>
-                  </th>
-                  <th
-                    class="sortable"
-                    data-key="amount"
-                    style="text-align: right"
-                  >
-                    Amount <span class="sort-icon" id="arrow-amount">▼</span>
-                  </th>
-                  <th>Status</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody id="tableBody">
-                <!-- Content rendered by JS -->
-              </tbody>
-            </table>
+        <!-- Pagination -->
+        <div class="pagination">
+          <div class="page-info">
+            Rows per page:
+            <select id="pageSizeSelect" style="background-color: var(--bg-tertiary); border: 1px solid var(--border-color); color: var(--text-primary); border-radius: 4px; padding: 2px 6px; outline: none; cursor: pointer;">
+              <option value="5">5</option>
+              <option value="10" selected>10</option>
+              <option value="20">20</option>
+            </select>
+            <span id="resultsCount" style="margin-left: 15px; color: var(--text-muted);"></span>
           </div>
-          <!-- Pagination -->
-          <div class="pagination">
-            <div class="page-info">
-              Rows per page:
-              <select
-                id="pageSizeSelect"
-                style="
-                  background-color: var(--bg-tertiary);
-                  border: 1px solid var(--border-color);
-                  color: var(--text-primary);
-                  border-radius: 4px;
-                  padding: 2px 6px;
-                  outline: none;
-                  cursor: pointer;
-                "
-              >
-                <option value="5">5</option>
-                <option value="10" selected>10</option>
-                <option value="20">20</option>
-              </select>
-              <span
-                id="resultsCount"
-                style="margin-left: 15px; color: var(--text-muted)"
-              ></span>
-            </div>
-            <div class="page-controls" id="pageControls">
-              <!-- Controls rendered by JS -->
-            </div>
-          </div>
-        </div>
-      </main>
-    </div>
-    <!-- Delete Modal Dialog -->
-    <div class="modal-overlay" id="modalOverlay">
-      <div class="modal">
-        <h3 style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif">
-          Delete this order?
-        </h3>
-        <p id="modalMessage">
-          This will permanently remove the order from your sandbox database.
-          This action cannot be undone.
-        </p>
-        <div class="modal-actions">
-          <button class="btn-secondary" id="cancelDeleteBtn">Cancel</button>
-          <button class="btn-danger" id="confirmDeleteBtn">
-            Confirm Delete
-          </button>
+          <div class="page-controls" id="pageControls"></div>
         </div>
       </div>
-    </div>
-    <div class="toast-msg" id="global-toast-msg"></div>
-    <script src="app.js"></script>
-    <script>
-      // ---------- Orders Sandbox Data & Operations ----------
-      const allStatuses = [
-        "Pending",
-        "Processing",
-        "Shipped",
-        "Delivered",
-        "Cancelled",
-        "Refunded",
-      ];
-      const firstNames = [
-        "Ava",
-        "Liam",
-        "Noah",
-        "Mia",
-        "Ethan",
-        "Sofia",
-        "Lucas",
-        "Emma",
-        "Owen",
-        "Zara",
-      ];
-      const lastNames = [
-        "Reyes",
-        "Chen",
-        "Patel",
-        "Nguyen",
-        "Garcia",
-        "Kim",
-        "Silva",
-        "Brooks",
-        "Ito",
-        "Adams",
-      ];
+    </main>
+  </div>
 
-      // Load or generate initial mock orders list
-      let orders = JSON.parse(localStorage.getItem("crm_orders"));
-      if (!orders) {
-        orders = [];
-        const today = new Date();
-        for (let i = 1; i <= 47; i++) {
-          const first = firstNames[i % firstNames.length];
-          const last = lastNames[(i * 3) % lastNames.length];
-          const status = allStatuses[i % allStatuses.length];
-          const daysAgo = (i * 7) % 120;
-          const orderDate = new Date(today);
-          orderDate.setDate(orderDate.getDate() - daysAgo);
-          orders.push({
-            id: "ORD-" + (1000 + i),
-            customerName: first + " " + last,
-            customerEmail:
-              first.toLowerCase() + "." + last.toLowerCase() + "@example.com",
-            dateStr: orderDate.toISOString(), // Save as ISO string for storage
-            amount: 20 + ((i * 37) % 480),
-            status: status,
-          });
-        }
-        localStorage.setItem("crm_orders", JSON.stringify(orders));
-      }
-      // State Variables
-      let searchText = "";
-      let statusFilterValue = "all";
-      let dateFilterValue = "all";
-      let sortKey = "date";
-      let sortDirection = "desc";
-      let currentPage = 1;
-      let rowsPerPage = 10;
-      let orderIdPendingDelete = null;
-      // Grab elements
-      const searchInput = document.getElementById("searchInput");
-      const statusFilterSelect = document.getElementById("statusFilter");
-      const dateFilterSelect = document.getElementById("dateFilter");
-      const clearFiltersLink = document.getElementById("clearFilters");
-      const resultsCount = document.getElementById("resultsCount");
-      const subtitleCount = document.getElementById("subtitleCount");
-      const statusSummaryBox = document.getElementById("statusSummary");
-      const tableBody = document.getElementById("tableBody");
-      const pageControls = document.getElementById("pageControls");
-      const pageSizeSelect = document.getElementById("pageSizeSelect");
-      const modalOverlay = document.getElementById("modalOverlay");
-      const cancelDeleteBtn = document.getElementById("cancelDeleteBtn");
-      const confirmDeleteBtn = document.getElementById("confirmDeleteBtn");
-      const statusColors = {
-        Pending: "#e8a23d",
-        Processing: "#3b82f6",
-        Shipped: "#10b981",
-        Delivered: "#10b981",
-        Cancelled: "#ef4444",
-        Refunded: "#626a7a",
-      };
-      // Helper functions
-      function formatDate(dateStr) {
-        const dateObj = new Date(dateStr);
-        const months = [
-          "Jan",
-          "Feb",
-          "Mar",
-          "Apr",
-          "May",
-          "Jun",
-          "Jul",
-          "Aug",
-          "Sep",
-          "Oct",
-          "Nov",
-          "Dec",
-        ];
-        return (
-          months[dateObj.getMonth()] +
-          " " +
-          dateObj.getDate() +
-          ", " +
-          dateObj.getFullYear()
-        );
-      }
-      function formatMoney(amount) {
-        return "$" + amount.toFixed(2);
-      }
-      function getInitials(name) {
-        return name
-          .split(" ")
-          .map((n) => n[0])
-          .join("")
-          .toUpperCase();
-      }
-      function orderMatchesFilters(order) {
-        if (searchText !== "") {
-          const text = searchText.toLowerCase();
-          const idMatches = order.id.toLowerCase().includes(text);
-          const nameMatches = order.customerName.toLowerCase().includes(text);
-          if (!idMatches && !nameMatches) return false;
-        }
-        if (statusFilterValue !== "all" && order.status !== statusFilterValue) {
-          return false;
-        }
-        if (dateFilterValue !== "all") {
-          const daysLimit = parseInt(dateFilterValue, 10);
-          const msPerDay = 1000 * 60 * 60 * 24;
-          const ageInDays = (new Date() - new Date(order.dateStr)) / msPerDay;
-          if (ageInDays > daysLimit) return false;
-        }
-        return true;
-      }
-      function getFilteredOrders() {
-        return orders.filter(orderMatchesFilters);
-      }
-      function sortOrders(list) {
-        list.sort((a, b) => {
-          let valueA =
-            a[
-              sortKey === "customer"
-                ? "customerName"
-                : sortKey === "date"
-                  ? "dateStr"
-                  : sortKey
-            ];
-          let valueB =
-            b[
-              sortKey === "customer"
-                ? "customerName"
-                : sortKey === "date"
-                  ? "dateStr"
-                  : sortKey
-            ];
-          if (sortKey === "amount") {
-            return sortDirection === "asc" ? valueA - valueB : valueB - valueA;
-          }
-          valueA = String(valueA).toLowerCase();
-          valueB = String(valueB).toLowerCase();
-          if (valueA < valueB) return sortDirection === "asc" ? -1 : 1;
-          if (valueA > valueB) return sortDirection === "asc" ? 1 : -1;
-          return 0;
+  <!-- Delete Modal Dialog -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <h3 style="font-family: 'Plus Jakarta Sans', sans-serif;">Delete this order?</h3>
+      <p id="modalMessage">This will permanently remove the order from your sandbox database. This action cannot be undone.</p>
+      <div class="modal-actions">
+        <button class="btn-secondary" id="cancelDeleteBtn">Cancel</button>
+        <button class="btn-danger" id="confirmDeleteBtn">Confirm Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-msg" id="global-toast-msg"></div>
+  <script src="app.js"></script>
+
+  <script>
+    const allStatuses = ["Pending", "Processing", "Shipped", "Delivered", "Cancelled", "Refunded"];
+    const firstNames = ["Ava", "Liam", "Noah", "Mia", "Ethan", "Sofia", "Lucas", "Emma", "Owen", "Zara"];
+    const lastNames = ["Reyes", "Chen", "Patel", "Nguyen", "Garcia", "Kim", "Silva", "Brooks", "Ito", "Adams"];
+    
+    let orders = JSON.parse(localStorage.getItem('crm_orders'));
+    if (!orders) {
+      orders = [];
+      const today = new Date();
+      for (let i = 1; i <= 47; i++) {
+        const first = firstNames[i % firstNames.length];
+        const last = lastNames[(i * 3) % lastNames.length];
+        const status = allStatuses[i % allStatuses.length];
+        const daysAgo = (i * 7) % 120;
+        const orderDate = new Date(today);
+        orderDate.setDate(orderDate.getDate() - daysAgo);
+
+        orders.push({
+          id: "ORD-" + (1000 + i),
+          customerName: first + " " + last,
+          customerEmail: first.toLowerCase() + "." + last.toLowerCase() + "@example.com",
+          dateStr: orderDate.toISOString(),
+          amount: 20 + ((i * 37) % 480),
+          status: status
         });
       }
-      // Status summary rendering
-      function renderStatusSummary() {
-        statusSummaryBox.innerHTML = "";
-        const counts = {
-          Pending: 0,
-          Processing: 0,
-          Shipped: 0,
-          Delivered: 0,
-          Cancelled: 0,
-          Refunded: 0,
-        };
-        orders.forEach((o) => {
-          if (counts[o.status] !== undefined) counts[o.status]++;
-        });
-        allStatuses.forEach((statusName) => {
-          const chip = document.createElement("div");
-          chip.className = `status-chip ${statusFilterValue === statusName ? "active" : ""}`;
-          chip.innerHTML = `
+      localStorage.setItem('crm_orders', JSON.stringify(orders));
+    }
+
+    let searchText = "";
+    let statusFilterValue = "all";
+    let dateFilterValue = "all";
+    let sortKey = "date";
+    let sortDirection = "desc";
+    let currentPage = 1;
+    let rowsPerPage = 10;
+    let orderIdPendingDelete = null;
+
+    const searchInput = document.getElementById("searchInput");
+    const statusFilterSelect = document.getElementById("statusFilter");
+    const dateFilterSelect = document.getElementById("dateFilter");
+    const clearFiltersLink = document.getElementById("clearFilters");
+    const resultsCount = document.getElementById("resultsCount");
+    const subtitleCount = document.getElementById("subtitleCount");
+    const statusSummaryBox = document.getElementById("statusSummary");
+    const tableBody = document.getElementById("tableBody");
+    const pageControls = document.getElementById("pageControls");
+    const pageSizeSelect = document.getElementById("pageSizeSelect");
+    const modalOverlay = document.getElementById("modalOverlay");
+    const cancelDeleteBtn = document.getElementById("cancelDeleteBtn");
+    const confirmDeleteBtn = document.getElementById("confirmDeleteBtn");
+
+    const statusColors = {
+      Pending: "#e8a23d", Processing: "#3b82f6", Shipped: "#10b981",
+      Delivered: "#10b981", Cancelled: "#ef4444", Refunded: "#626a7a"
+    };
+
+    function formatDate(dateStr) {
+      const dateObj = new Date(dateStr);
+      const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      return months[dateObj.getMonth()] + " " + dateObj.getDate() + ", " + dateObj.getFullYear();
+    }
+
+    function formatMoney(amount) {
+      return "$" + amount.toFixed(2);
+    }
+
+    function getInitials(name) {
+      return name.split(" ").map(n => n[0]).join("").toUpperCase();
+    }
+
+    function orderMatchesFilters(order) {
+      if (searchText !== "") {
+        const text = searchText.toLowerCase();
+        const idMatches = order.id.toLowerCase().includes(text);
+        const nameMatches = order.customerName.toLowerCase().includes(text);
+        if (!idMatches && !nameMatches) return false;
+      }
+      if (statusFilterValue !== "all" && order.status !== statusFilterValue) return false;
+      if (dateFilterValue !== "all") {
+        const daysLimit = parseInt(dateFilterValue, 10);
+        const msPerDay = 1000 * 60 * 60 * 24;
+        const ageInDays = (new Date() - new Date(order.dateStr)) / msPerDay;
+        if (ageInDays > daysLimit) return false;
+      }
+      return true;
+    }
+
+    function getFilteredOrders() {
+      return orders.filter(orderMatchesFilters);
+    }
+
+    function sortOrders(list) {
+      list.sort((a, b) => {
+        let valueA = a[sortKey === "customer" ? "customerName" : sortKey === "date" ? "dateStr" : sortKey];
+        let valueB = b[sortKey === "customer" ? "customerName" : sortKey === "date" ? "dateStr" : sortKey];
+        if (sortKey === "amount") {
+          return sortDirection === "asc" ? valueA - valueB : valueB - valueA;
+        }
+        valueA = String(valueA).toLowerCase();
+        valueB = String(valueB).toLowerCase();
+        if (valueA < valueB) return sortDirection === "asc" ? -1 : 1;
+        if (valueA > valueB) return sortDirection === "asc" ? 1 : -1;
+        return 0;
+      });
+    }
+
+    function renderStatusSummary() {
+      statusSummaryBox.innerHTML = "";
+      const counts = { Pending: 0, Processing: 0, Shipped: 0, Delivered: 0, Cancelled: 0, Refunded: 0 };
+      orders.forEach(o => {
+        if (counts[o.status] !== undefined) counts[o.status]++;
+      });
+
+      allStatuses.forEach(statusName => {
+        const chip = document.createElement("div");
+        chip.className = `status-chip ${statusFilterValue === statusName ? 'active' : ''}`;
+        chip.innerHTML = `
           <span class="dot" style="background-color: ${statusColors[statusName]};"></span>
           <span>${statusName}</span>
           <b>${counts[statusName]}</b>
         `;
-          chip.addEventListener("click", () => {
-            if (statusFilterValue === statusName) {
-              statusFilterValue = "all";
-            } else {
-              statusFilterValue = statusName;
-            }
-            statusFilterSelect.value = statusFilterValue;
-            currentPage = 1;
-            renderEverything();
-          });
-          statusSummaryBox.appendChild(chip);
+        chip.addEventListener("click", () => {
+          statusFilterValue = (statusFilterValue === statusName) ? "all" : statusName;
+          statusFilterSelect.value = statusFilterValue;
+          currentPage = 1;
+          renderEverything();
         });
-      }
-      // Build row details
-      function buildOrderRow(order) {
-        const row = document.createElement("tr");
-        // ID
-        const idCell = document.createElement("td");
-        idCell.style.fontFamily = "JetBrains Mono, monospace";
-        idCell.textContent = order.id;
-        row.appendChild(idCell);
-        // Customer
-        const initials = getInitials(order.customerName);
-        const custCell = document.createElement("td");
-        custCell.innerHTML = `
+        statusSummaryBox.appendChild(chip);
+      });
+    }
+
+    function buildOrderRow(order) {
+      const row = document.createElement("tr");
+      const idCell = document.createElement("td");
+      idCell.style.fontFamily = "JetBrains Mono, monospace";
+      idCell.textContent = order.id;
+      row.appendChild(idCell);
+
+      const initials = getInitials(order.customerName);
+      const custCell = document.createElement("td");
+      custCell.innerHTML = `
         <div class="cell-flex">
           <div class="avatar-initials">${initials}</div>
           <div>
@@ -443,73 +308,74 @@
           </div>
         </div>
       `;
-        row.appendChild(custCell);
-        // Date
-        const dateCell = document.createElement("td");
-        dateCell.textContent = formatDate(order.dateStr);
-        row.appendChild(dateCell);
-        // Amount
-        const amountCell = document.createElement("td");
-        amountCell.className = "num";
-        amountCell.style.textAlign = "right";
-        amountCell.style.fontWeight = "600";
-        amountCell.textContent = formatMoney(order.amount);
-        row.appendChild(amountCell);
-        // Status Badge
-        const statusCell = document.createElement("td");
-        let badgeClass = "badge-pending";
-        if (order.status === "Processing") badgeClass = "badge-processing";
-        if (order.status === "Shipped") badgeClass = "badge-shipped";
-        if (order.status === "Delivered") badgeClass = "badge-delivered";
-        if (order.status === "Cancelled") badgeClass = "badge-cancelled";
-        if (order.status === "Refunded") badgeClass = "badge-refunded";
-        // Wrap badge in selection box to change status
-        statusCell.innerHTML = `
+      row.appendChild(custCell);
+
+      const dateCell = document.createElement("td");
+      dateCell.textContent = formatDate(order.dateStr);
+      row.appendChild(dateCell);
+
+      const amountCell = document.createElement("td");
+      amountCell.className = "num";
+      amountCell.style.textAlign = "right";
+      amountCell.style.fontWeight = "600";
+      amountCell.textContent = formatMoney(order.amount);
+      row.appendChild(amountCell);
+
+      const statusCell = document.createElement("td");
+      let badgeClass = "badge-pending";
+      if (order.status === "Processing") badgeClass = "badge-processing";
+      if (order.status === "Shipped") badgeClass = "badge-shipped";
+      if (order.status === "Delivered") badgeClass = "badge-delivered";
+      if (order.status === "Cancelled") badgeClass = "badge-cancelled";
+      if (order.status === "Refunded") badgeClass = "badge-refunded";
+
+      statusCell.innerHTML = `
         <select class="status-badge ${badgeClass}" style="border: none; padding: 4px 10px; cursor: pointer; outline: none;">
-          ${allStatuses.map((st) => `<option value="${st}" ${order.status === st ? "selected" : ""}>${st}</option>`).join("")}
+          ${allStatuses.map(st => `<option value="${st}" ${order.status === st ? 'selected' : ''}>${st}</option>`).join('')}
         </select>
       `;
-        // Status change handler
-        statusCell.querySelector("select").addEventListener("change", (e) => {
-          const oldStatus = order.status;
-          order.status = e.target.value;
-          localStorage.setItem("crm_orders", JSON.stringify(orders));
-          window.showToast(
-            `Order ${order.id} status changed from ${oldStatus} to ${order.status}`,
-          );
-          renderEverything();
-        });
-        row.appendChild(statusCell);
-        // Action Cell (Delete)
-        const actionCell = document.createElement("td");
-        actionCell.style.textAlign = "right";
-        actionCell.innerHTML = `
+
+      statusCell.querySelector('select').addEventListener('change', (e) => {
+        const oldStatus = order.status;
+        order.status = e.target.value;
+        localStorage.setItem('crm_orders', JSON.stringify(orders));
+        window.showToast(`Order ${order.id} status changed to ${order.status}`);
+        renderEverything();
+      });
+      row.appendChild(statusCell);
+
+      const actionCell = document.createElement("td");
+      actionCell.style.textAlign = "right";
+      actionCell.innerHTML = `
         <button class="row-action-btn delete-btn" title="Delete Order">
           <i data-lucide="trash-2" style="width: 16px; height: 16px; color: var(--danger);"></i>
         </button>
       `;
-        actionCell
-          .querySelector(".delete-btn")
-          .addEventListener("click", () => {
-            orderIdPendingDelete = order.id;
-            modalOverlay.classList.add("open");
-          });
-        row.appendChild(actionCell);
-        return row;
-      }
-      // Render Table
-      function renderTable() {
-        const filtered = getFilteredOrders();
-        sortOrders(filtered);
-        const totalItems = filtered.length;
-        const totalPages = Math.max(1, Math.ceil(totalItems / rowsPerPage));
-        if (currentPage > totalPages) currentPage = totalPages;
-        const startIndex = (currentPage - 1) * rowsPerPage;
-        const endIndex = Math.min(startIndex + rowsPerPage, totalItems);
-        const pageItems = filtered.slice(startIndex, endIndex);
-        tableBody.innerHTML = "";
-        if (pageItems.length === 0) {
-          tableBody.innerHTML = `
+      actionCell.querySelector(".delete-btn").addEventListener("click", () => {
+        orderIdPendingDelete = order.id;
+        modalOverlay.classList.add("open");
+      });
+      row.appendChild(actionCell);
+
+      return row;
+    }
+
+    function renderTable() {
+      const filtered = getFilteredOrders();
+      sortOrders(filtered);
+
+      const totalItems = filtered.length;
+      const totalPages = Math.max(1, Math.ceil(totalItems / rowsPerPage));
+      if (currentPage > totalPages) currentPage = totalPages;
+
+      const startIndex = (currentPage - 1) * rowsPerPage;
+      const endIndex = Math.min(startIndex + rowsPerPage, totalItems);
+      const pageItems = filtered.slice(startIndex, endIndex);
+
+      tableBody.innerHTML = "";
+
+      if (pageItems.length === 0) {
+        tableBody.innerHTML = `
           <tr>
             <td colspan="6" style="text-align: center; padding: 40px; color: var(--text-muted);">
               <i data-lucide="shopping-bag" style="width: 32px; height: 32px; margin-bottom: 10px;"></i>
@@ -517,134 +383,134 @@
             </td>
           </tr>
         `;
-          lucide.createIcons();
-          renderPaginationControls(1, 1);
-          resultsCount.textContent = "Showing 0 of 0 entries";
-          subtitleCount.textContent = `Displaying 0 transactions`;
-          return;
-        }
-        pageItems.forEach((order) => {
-          tableBody.appendChild(buildOrderRow(order));
-        });
         lucide.createIcons();
-        resultsCount.textContent = `Showing ${startIndex + 1} to ${endIndex} of ${totalItems} entries`;
-        subtitleCount.textContent = `Displaying ${totalItems} transactions out of ${orders.length} total`;
-        renderPaginationControls(currentPage, totalPages);
+        renderPaginationControls(1, 1);
+        resultsCount.textContent = "Showing 0 of 0 entries";
+        subtitleCount.textContent = `Displaying 0 transactions`;
+        return;
       }
-      function renderPaginationControls(current, total) {
-        pageControls.innerHTML = "";
 
-        const prevBtn = document.createElement("button");
-        prevBtn.className = "page-btn";
-        prevBtn.innerHTML = `<i data-lucide="chevron-left" style="width: 16px; height: 16px;"></i>`;
-        prevBtn.disabled = current === 1;
-        prevBtn.onclick = () => {
-          currentPage--;
-          renderTable();
-        };
-        pageControls.appendChild(prevBtn);
-        for (let i = 1; i <= total; i++) {
-          const btn = document.createElement("button");
-          btn.className = `page-btn ${i === current ? "active" : ""}`;
-          btn.textContent = i;
-          btn.onclick = () => {
-            currentPage = i;
-            renderTable();
-          };
-          pageControls.appendChild(btn);
+      pageItems.forEach(order => {
+        tableBody.appendChild(buildOrderRow(order));
+      });
+
+      lucide.createIcons();
+      resultsCount.textContent = `Showing ${startIndex + 1} to ${endIndex} of ${totalItems} entries`;
+      subtitleCount.textContent = `Displaying ${totalItems} transactions out of ${orders.length} total`;
+      renderPaginationControls(currentPage, totalPages);
+    }
+
+    function renderPaginationControls(current, total) {
+      pageControls.innerHTML = '';
+      const prevBtn = document.createElement("button");
+      prevBtn.className = "page-btn";
+      prevBtn.innerHTML = `<i data-lucide="chevron-left" style="width: 16px; height: 16px;"></i>`;
+      prevBtn.disabled = current === 1;
+      prevBtn.onclick = () => { currentPage--; renderTable(); };
+      pageControls.appendChild(prevBtn);
+
+      for (let i = 1; i <= total; i++) {
+        const btn = document.createElement("button");
+        btn.className = `page-btn ${i === current ? 'active' : ''}`;
+        btn.textContent = i;
+        btn.onclick = () => { currentPage = i; renderTable(); };
+        pageControls.appendChild(btn);
+      }
+
+      const nextBtn = document.createElement("button");
+      nextBtn.className = "page-btn";
+      nextBtn.innerHTML = `<i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i>`;
+      nextBtn.disabled = current === total;
+      nextBtn.onclick = () => { currentPage++; renderTable(); };
+      pageControls.appendChild(nextBtn);
+      lucide.createIcons();
+    }
+
+    function updateSortArrows() {
+      document.querySelectorAll("thead th.sortable").forEach(th => {
+        const key = th.getAttribute("data-key");
+        const arrow = th.querySelector(".sort-icon");
+        if (key === sortKey) {
+          arrow.classList.add("active");
+          arrow.textContent = sortDirection === "asc" ? "▲" : "▼";
+        } else {
+          arrow.classList.remove("active");
+          arrow.textContent = "▼";
         }
-        const nextBtn = document.createElement("button");
-        nextBtn.className = "page-btn";
-        nextBtn.innerHTML = `<i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i>`;
-        nextBtn.disabled = current === total;
-        nextBtn.onclick = () => {
-          currentPage++;
-          renderTable();
-        };
-        pageControls.appendChild(nextBtn);
-        lucide.createIcons();
-      }
-      // Set sorting columns header indicators
-      function updateSortArrows() {
-        document.querySelectorAll("thead th.sortable").forEach((th) => {
-          const key = th.getAttribute("data-key");
-          const arrow = th.querySelector(".sort-icon");
-          if (key === sortKey) {
-            arrow.classList.add("active");
-            arrow.textContent = sortDirection === "asc" ? "▲" : "▼";
-          } else {
-            arrow.classList.remove("active");
-            arrow.textContent = "▼";
-          }
-        });
-      }
-      function renderEverything() {
-        renderStatusSummary();
-        renderTable();
-        updateSortArrows();
-      }
-      // Page Event Wireups
-      searchInput.addEventListener("input", () => {
-        searchText = searchInput.value;
-        currentPage = 1;
+      });
+    }
+
+    function renderEverything() {
+      renderStatusSummary();
+      renderTable();
+      updateSortArrows();
+    }
+
+    searchInput.addEventListener("input", () => {
+      searchText = searchInput.value;
+      currentPage = 1;
+      renderEverything();
+    });
+
+    statusFilterSelect.addEventListener("change", () => {
+      statusFilterValue = statusFilterSelect.value;
+      currentPage = 1;
+      renderEverything();
+    });
+
+    dateFilterSelect.addEventListener("change", () => {
+      dateFilterValue = dateFilterSelect.value;
+      currentPage = 1;
+      renderEverything();
+    });
+
+    pageSizeSelect.addEventListener("change", () => {
+      rowsPerPage = parseInt(pageSizeSelect.value, 10);
+      currentPage = 1;
+      renderEverything();
+    });
+
+    document.getElementById("clearFilters").addEventListener("click", () => {
+      searchInput.value = "";
+      statusFilterSelect.value = "all";
+      dateFilterSelect.value = "all";
+      searchText = "";
+      statusFilterValue = "all";
+      dateFilterValue = "all";
+      currentPage = 1;
+      renderEverything();
+    });
+
+    document.querySelectorAll("thead th.sortable").forEach(th => {
+      th.addEventListener("click", () => {
+        const key = th.getAttribute("data-key");
+        if (sortKey === key) {
+          sortDirection = sortDirection === "asc" ? "desc" : "asc";
+        } else {
+          sortKey = key;
+          sortDirection = "asc";
+        }
         renderEverything();
       });
-      statusFilterSelect.addEventListener("change", () => {
-        statusFilterValue = statusFilterSelect.value;
-        currentPage = 1;
-        renderEverything();
-      });
-      dateFilterSelect.addEventListener("change", () => {
-        dateFilterValue = dateFilterSelect.value;
-        currentPage = 1;
-        renderEverything();
-      });
-      pageSizeSelect.addEventListener("change", () => {
-        rowsPerPage = parseInt(pageSizeSelect.value, 10);
-        currentPage = 1;
-        renderEverything();
-      });
-      document.getElementById("clearFilters").addEventListener("click", () => {
-        searchInput.value = "";
-        statusFilterSelect.value = "all";
-        dateFilterSelect.value = "all";
-        searchText = "";
-        statusFilterValue = "all";
-        dateFilterValue = "all";
-        currentPage = 1;
-        renderEverything();
-      });
-      document.querySelectorAll("thead th.sortable").forEach((th) => {
-        th.addEventListener("click", () => {
-          const key = th.getAttribute("data-key");
-          if (sortKey === key) {
-            sortDirection = sortDirection === "asc" ? "desc" : "asc";
-          } else {
-            sortKey = key;
-            sortDirection = "asc";
-          }
-          renderEverything();
-        });
-      });
-      // Delete confirmation actions
-      cancelDeleteBtn.addEventListener("click", () => {
+    });
+
+    cancelDeleteBtn.addEventListener("click", () => {
+      modalOverlay.classList.remove("open");
+      orderIdPendingDelete = null;
+    });
+
+    confirmDeleteBtn.addEventListener("click", () => {
+      if (orderIdPendingDelete) {
+        orders = orders.filter(o => o.id !== orderIdPendingDelete);
+        localStorage.setItem('crm_orders', JSON.stringify(orders));
+        window.showToast(`Order ${orderIdPendingDelete} has been successfully deleted.`);
         modalOverlay.classList.remove("open");
         orderIdPendingDelete = null;
-      });
-      confirmDeleteBtn.addEventListener("click", () => {
-        if (orderIdPendingDelete) {
-          orders = orders.filter((o) => o.id !== orderIdPendingDelete);
-          localStorage.setItem("crm_orders", JSON.stringify(orders));
-          window.showToast(
-            `Order ${orderIdPendingDelete} has been successfully deleted.`,
-          );
-          modalOverlay.classList.remove("open");
-          orderIdPendingDelete = null;
-          renderEverything();
-        }
-      });
-      // Run Panel
-      renderEverything();
-    </script>
-  </body>
+        renderEverything();
+      }
+    });
+
+    renderEverything();
+  </script>
+</body>
 </html>
