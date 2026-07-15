@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DK CRM - Premium Login Demo</title>
+    <title>DK CRM -Login Demo</title>
     <link rel="stylesheet" href="style.css" />
     <!-- Lucide Icons CDN -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -16,7 +16,7 @@
       backend connected.
     </div>
     <div class="login-page">
-      <!-- LEFT SIDE: Decorative brand panel (Hidden on Mobile) -->
+      <!-- LEFT SIDE: -->
       <div class="login-left">
         <div class="login-logo">
           <i
@@ -45,8 +45,7 @@
         <div
           class="login-subtext"
           style="margin-bottom: 0; font-size: 13px; opacity: 0.7"
-        >
-          © 2026 DK CRM Sandbox. Made with premium design standards.
+        > © 2026 DK CRM Sandbox. Made with modern design standards.
         </div>
       </div>
       <!-- RIGHT SIDE: Login form -->
@@ -246,9 +245,7 @@
 
       document.getElementById("signupLink").onclick = function (e) {
         e.preventDefault();
-        showToast(
-          "Signup is disabled. Please log in with the default credentials.",
-        );
+        window.location.href = "signup.html";
       };
       // ---------- 4. Elevation live ticker in left panel ----------
       const elevationValue = document.getElementById("elevationValue");
