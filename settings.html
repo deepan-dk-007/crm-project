@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DK CRM - Settings Sandbox</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <div class="app">
+      <!-- SIDEBAR -->
+      <aside class="sidebar" id="app-sidebar">
+        <div>
+          <div class="brand">
+            <i
+              data-lucide="shield-check"
+              style="stroke-width: 2.5; width: 24px; height: 24px"
+            ></i>
+            <span>DK CRM</span>
+          </div>
+          <nav>
+            <div class="nav-label">Workspace</div>
+            <a href="dashboard.html">
+              <div class="nav-item">
+                <i data-lucide="layout-dashboard"></i>
+                <span>Dashboard</span>
+              </div>
+            </a>
+            <a href="customer.html">
+              <div class="nav-item">
+                <i data-lucide="users"></i>
+                <span>Customers</span>
+              </div>
+            </a>
+            <a href="order.html">
+              <div class="nav-item">
+                <i data-lucide="shopping-cart"></i>
+                <span>Orders</span>
+              </div>
+            </a>
+            <div class="nav-label">Account</div>
+            <a href="settings.html">
+              <div class="nav-item">
+                <i data-lucide="settings"></i>
+                <span>Settings</span>
+              </div>
+            </a>
+          </nav>
+        </div>
+        <div class="sidebar-footer">
+          <div class="user-profile">
+            <div class="avatar" id="footer-avatar-abbr">DK</div>
+            <div class="user-details">
+              <div class="user-name" id="footer-user-name">Deepan Karthick</div>
+              <div class="user-role" id="footer-user-role">Sales Director</div>
+            </div>
+          </div>
+          <button class="logout-btn" id="logoutBtn">
+            <i data-lucide="log-out" style="width: 14px; height: 14px"></i>
+            <span>Sign Out</span>
+          </button>
+        </div>
+      </aside>
+      <!-- MAIN SECTION -->
+      <main class="main">
+        <!-- TOPBAR -->
+        <header class="topbar">
+          <div class="topbar-title-wrap">
+            <button
+              class="menu-toggle"
+              id="sidebar-toggle-btn"
+              aria-label="Toggle Sidebar Menu"
+            >
+              <i data-lucide="menu"></i>
+            </button>
+            <div>
+              <h1>Settings</h1>
+              <div class="subtitle">
+                Customize your sandbox workspace preferences
+              </div>
+            </div>
+          </div>
+          <div class="topbar-actions">
+            <button class="icon-btn" id="notif-bell" aria-label="Notifications">
+              <i data-lucide="bell" style="width: 18px; height: 18px"></i>
+            </button>
+
+            <button
+              class="icon-btn"
+              id="theme-toggle-btn"
+              aria-label="Toggle Light/Dark Theme"
+            >
+              <i
+                data-lucide="moon"
+                id="theme-icon"
+                style="width: 18px; height: 18px"
+              ></i>
+            </button>
+          </div>
+        </header>
+        <!-- Settings Layout Grid -->
+        <div class="charts-grid">
+          <!-- Profile Settings Panel -->
+          <div class="panel">
+            <div
+              class="panel-header"
+              style="
+                border-bottom: 1px solid var(--border-color);
+                padding-bottom: 15px;
+              "
+            >
+              <div class="panel-title">
+                <h3>Profile Settings</h3>
+                <div class="sub">Update your local sandbox user details</div>
+              </div>
+            </div>
+
+            <form id="profileForm" style="margin-top: 20px">
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 20px;
+                  margin-bottom: 25px;
+                "
+              >
+                <div
+                  class="avatar"
+                  id="avatar-preview"
+                  style="width: 60px; height: 60px; font-size: 20px"
+                >
+                  DK
+                </div>
+                <div>
+                  <button
+                    type="button"
+                    class="btn-secondary"
+                    id="change-avatar-btn"
+                    style="padding: 6px 12px; font-size: 12.5px"
+                  >
+                    Change Initials
+                  </button>
+                </div>
+              </div>
+              <div class="field">
+                <label for="displayName">Display Name</label>
+                <div class="input-wrap">
+                  <input
+                    type="text"
+                    id="displayName"
+                    value="Deepan Karthick"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="field">
+                <label for="displayRole">Sales Role</label>
+                <div class="input-wrap">
+                  <input
+                    type="text"
+                    id="displayRole"
+                    value="Sales Director"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="field">
+                <label for="displayEmail">Email Address</label>
+                <div class="input-wrap">
+                  <input
+                    type="email"
+                    id="displayEmail"
+                    value="demo@dkcrm.com"
+                    required
+                  />
+                </div>
+              </div>
+              <button
+                type="submit"
+                class="btn-primary"
+                style="margin-top: 10px"
+              >
+                <i data-lucide="save" style="width: 16px; height: 16px"></i>
+                <span>Save Changes</span>
+              </button>
+            </form>
+          </div>
+          <!-- System & Developer Sandbox controls -->
+          <div class="panel">
+            <div
+              class="panel-header"
+              style="
+                border-bottom: 1px solid var(--border-color);
+                padding-bottom: 15px;
+              "
+            >
+              <div class="panel-title">
+                <h3>Developer Preferences</h3>
+                <div class="sub">Manage mock databases & sandbox features</div>
+              </div>
+            </div>
+            <div style="margin-top: 20px">
+              <div style="margin-bottom: 25px">
+                <h4
+                  style="
+                    font-size: 14.5px;
+                    font-weight: 600;
+                    margin-bottom: 8px;
+                  "
+                >
+                  Theme Settings
+                </h4>
+                <p
+                  style="
+                    font-size: 13px;
+                    color: var(--text-secondary);
+                    margin-bottom: 12px;
+                  "
+                >
+                  Toggle light or dark modes. This setting will persist in local
+                  storage.
+                </p>
+                <button
+                  class="btn-secondary"
+                  id="direct-theme-btn"
+                  style="display: flex; align-items: center; gap: 8px"
+                >
+                  <i
+                    data-lucide="sun-moon"
+                    style="width: 16px; height: 16px"
+                  ></i>
+                  <span>Switch Theme Mode</span>
+                </button>
+              </div>
+              <div
+                style="
+                  border-top: 1px solid var(--border-color);
+                  padding-top: 20px;
+                  margin-bottom: 25px;
+                "
+              >
+                <h4
+                  style="
+                    font-size: 14.5px;
+                    font-weight: 600;
+                    margin-bottom: 8px;
+                    color: var(--danger);
+                  "
+                >
+                  Reset CRM Sandbox
+                </h4>
+                <p
+                  style="
+                    font-size: 13px;
+                    color: var(--text-secondary);
+                    margin-bottom: 12px;
+                  "
+                >
+                  Clear custom edits and restore default orders and customers
+                  list databases.
+                </p>
+                <button
+                  class="btn-danger"
+                  id="reset-db-btn"
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    background-color: var(--danger-bg);
+                    border: 1px solid rgba(239, 68, 68, 0.2);
+                    color: var(--danger);
+                    box-shadow: none;
+                  "
+                >
+                  <i
+                    data-lucide="rotate-ccw"
+                    style="width: 16px; height: 16px"
+                  ></i>
+                  <span>Reset Database Defaults</span>
+                </button>
+              </div>
+
+              <div
+                style="
+                  border-top: 1px solid var(--border-color);
+                  padding-top: 20px;
+                "
+              >
+                <h4
+                  style="
+                    font-size: 14.5px;
+                    font-weight: 600;
+                    margin-bottom: 8px;
+                  "
+                >
+                  Hosting Compatibility
+                </h4>
+                <p
+                  style="
+                    font-size: 13px;
+                    color: var(--text-secondary);
+                    line-height: 1.5;
+                  "
+                >
+                  This site is built with pure HTML5, vanilla CSS, and vanilla
+                  JS logic, making it fully static and secure. It does not send
+                  any backend calls or collect user password data, making it
+                  compliant with GitHub Pages and Google Safe Browsing policies.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <div class="toast-msg" id="global-toast-msg"></div>
+    <script src="app.js"></script>
+    <script>
+      // ---------- Settings Page Custom Scripts ----------
+      const profileForm = document.getElementById("profileForm");
+      const displayNameInput = document.getElementById("displayName");
+      const displayRoleInput = document.getElementById("displayRole");
+      const displayEmailInput = document.getElementById("displayEmail");
+      const avatarPreview = document.getElementById("avatar-preview");
+      const changeAvatarBtn = document.getElementById("change-avatar-btn");
+
+      const footerAvatarAbbr = document.getElementById("footer-avatar-abbr");
+      const footerUserName = document.getElementById("footer-user-name");
+      const footerUserRole = document.getElementById("footer-user-role");
+
+      // Load local user profile settings if they exist
+      let localProfile = JSON.parse(localStorage.getItem("crm_profile"));
+      if (!localProfile) {
+        localProfile = {
+          name: "Deepan Karthick",
+          role: "Sales Director",
+          email: "demo@dkcrm.com",
+          abbr: "DK",
+        };
+        localStorage.setItem("crm_profile", JSON.stringify(localProfile));
+      }
+
+      // Set form fields initial values
+      function updateProfileUI() {
+        displayNameInput.value = localProfile.name;
+        displayRoleInput.value = localProfile.role;
+        displayEmailInput.value = localProfile.email;
+
+        avatarPreview.textContent = localProfile.abbr;
+        footerAvatarAbbr.textContent = localProfile.abbr;
+        footerUserName.textContent = localProfile.name;
+        footerUserRole.textContent = localProfile.role;
+      }
+      updateProfileUI();
+      // Change initials button action
+      changeAvatarBtn.addEventListener("click", () => {
+        const newAbbr = prompt(
+          "Enter 2-letter initials for your avatar (e.g. DK, JD):",
+          localProfile.abbr,
+        );
+        if (newAbbr && newAbbr.trim().length <= 3) {
+          localProfile.abbr = newAbbr.trim().toUpperCase();
+          localStorage.setItem("crm_profile", JSON.stringify(localProfile));
+          updateProfileUI();
+          window.showToast("Profile initials updated.");
+        }
+      });
+      // Save changes submit action
+      profileForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        localProfile.name = displayNameInput.value.trim();
+        localProfile.role = displayRoleInput.value.trim();
+        localProfile.email = displayEmailInput.value.trim();
+
+        // Update initials automatically from name if not edited
+        const parts = localProfile.name.split(" ");
+        if (parts.length >= 2) {
+          localProfile.abbr = (parts[0][0] + parts[1][0]).toUpperCase();
+        } else if (parts.length === 1) {
+          localProfile.abbr = parts[0].substring(0, 2).toUpperCase();
+        }
+
+        localStorage.setItem("crm_profile", JSON.stringify(localProfile));
+        updateProfileUI();
+        window.showToast("Workspace profile settings saved successfully.");
+      });
+      // Developer Direct Theme button
+      document
+        .getElementById("direct-theme-btn")
+        .addEventListener("click", () => {
+          document.getElementById("theme-toggle-btn").click();
+        });
+      // Database Reset Button Action
+      document.getElementById("reset-db-btn").addEventListener("click", () => {
+        if (
+          confirm(
+            "Are you sure you want to reset all mock customers, orders, and notifications databases to default lists?",
+          )
+        ) {
+          localStorage.removeItem("crm_orders");
+          localStorage.removeItem("crm_customers");
+          localStorage.removeItem("crm_notifications");
+          localStorage.removeItem("crm_profile");
+
+          window.showToast("Resetting mock database records...");
+          setTimeout(() => {
+            window.location.reload();
+          }, 1000);
+        }
+      });
+    </script>
+  </body>
+</html>
